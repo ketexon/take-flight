@@ -3,10 +3,17 @@ extends Sprite2D
 var is_dragging = false
 #var mouse_offset #center mouse on click
 var delay = 2
+var drop_spots = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	#NOTE: _ready functions are *ALWAYS* called in from deepest child node to 
+	#and proceding toward the parent. Thus we defer the call to ensure
+	#ALL _ready funcs have been called and thus the drop_slots are instanced
+	call_deferred("_populate_drop_spots")
+	
+func _populate_drop_spots() -> void:
+	drop_spots = get_tree().get_nodes_in_group("drop_spot_group")
 	
 func _input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -17,7 +24,13 @@ func _input(event) -> void:
 				#mouse_offset = get_global_mouse_position() - global_position
 		else:
 			is_dragging = false
-			print('up')
+			for drop_spot in drop_spots:
+				if drop_spot.has_overlapping_areas() && \
+				 drop_spot.get_overlapping_areas().has(self.get_node("Area2D")):
+					#TODO: if overlapping with multiple drop_spots, this will 
+					var snap_position = drop_spot.position
+					var tween = get_tree().create_tween()
+					tween.tween_property(self,"position", snap_position, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://co30jophqgtyl"]
 
+[ext_resource type="Script" uid="uid://c0n4v3xn2cgb0" path="res://DragAndDropUI/fill_grid.gd" id="1_h81aw"]
 [ext_resource type="PackedScene" uid="uid://c51sskyjmj6tm" path="res://DragAndDropUI/draggable_sprite.tscn" id="1_rdolv"]
+[ext_resource type="PackedScene" uid="uid://de3o44qbuxhfp" path="res://DragAndDropUI/drop_spot.tscn" id="2_24kwc"]
 
 [node name="BaseLevel" type="Node2D" unique_id=404956787]
+script = ExtResource("1_h81aw")
+
+[node name="DropSpot" parent="." unique_id=1849400498 instance=ExtResource("2_24kwc")]
+position = Vector2(220, 195)
+
+[node name="DropSpot2" parent="." unique_id=1389765827 instance=ExtResource("2_24kwc")]
+position = Vector2(83, 195)
 
 [node name="DraggableSprite" parent="." unique_id=1606048795 instance=ExtResource("1_rdolv")]
+position = Vector2(180, 369)
