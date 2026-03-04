@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://co30jophqgtyl"]
+
+[ext_resource type="PackedScene" uid="uid://c51sskyjmj6tm" path="res://DragAndDropUI/draggable_sprite.tscn" id="1_rdolv"]
+
+[node name="BaseLevel" type="Node2D" unique_id=404956787]
+
+[node name="DraggableSprite" parent="." unique_id=1606048795 instance=ExtResource("1_rdolv")]
