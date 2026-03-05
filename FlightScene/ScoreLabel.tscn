@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c4j0243v8iklv"]
+
+[ext_resource type="Script" uid="uid://cmxjwidcrjqwr" path="res://FlightScene/resource_label.gd" id="1_8s5qd"]
+
+[node name="ScoreLabel" type="Control" unique_id=978232497 node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8s5qd")
+label = NodePath("ResourceLabel")
+
+[node name="ResourceLabel" type="Label" parent="." unique_id=164362264]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Resources: 0 "
