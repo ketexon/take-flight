@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bmklefqp8cf3e"]
+
+[ext_resource type="PackedScene" uid="uid://y3xp63ipvopj" path="res://trap_phase/enemy/trap_phase_enemy_base.tscn" id="1_xx2tt"]
+
+[node name="TrapPhaseEnemyBase" unique_id=1846824997 instance=ExtResource("1_xx2tt")]
