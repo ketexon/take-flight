@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://djoixei7bjmc0"]
+
+[ext_resource type="Script" uid="uid://we2pm74x686c" path="res://ShopUI/shop_scene.gd" id="1_ip0xj"]
+[ext_resource type="PackedScene" uid="uid://blbfxd61r1qx3" path="res://ShopUI/sell_trap.tscn" id="2_j7ar4"]
+
+[node name="ShopScene" type="Control" unique_id=1901123927 node_paths=PackedStringArray("trap_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 164.0
+offset_right = 17.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ip0xj")
+sell_trap = ExtResource("2_j7ar4")
+trap_container = NodePath("ScrollContainer/TrapHolder")
+
+[node name="Background" type="ColorRect" parent="." unique_id=920309172]
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 648.0
+color = Color(1, 0.4, 0.5764706, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2005911633]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 67.0
+offset_right = 196.0
+offset_bottom = 636.0
+
+[node name="TrapHolder" type="VBoxContainer" parent="ScrollContainer" unique_id=151345871]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=721804564]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 212.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 32
+text = "-      Shop      - "
+horizontal_alignment = 1
