@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://2esoglfn4h38"]
+
+[ext_resource type="PackedScene" uid="uid://brba766xwahty" path="res://FlightScene/resource.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://b68yv5oachh2w" path="res://FlightScene/ProjectileSpawner.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://c8fo07yjj0cp0" path="res://FlightScene/player.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://c4j0243v8iklv" path="res://FlightScene/ScoreLabel.tscn" id="4_fc0e3"]
+[ext_resource type="Script" uid="uid://bikb82mdcu53d" path="res://FlightScene/level_bounds.gd" id="5_702ma"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_feb5d"]
+
+[node name="Game" type="Node2D" unique_id=1496670721]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2124767602]
+position = Vector2(0, -320)
+
+[node name="Player" parent="." unique_id=2053148536 instance=ExtResource("3_feb5d")]
+z_index = 1
+position = Vector2(8, -496)
+
+[node name="ResourceSpawner" parent="." unique_id=1813083604 node_paths=PackedStringArray("labelNode") instance=ExtResource("2_feb5d")]
+position = Vector2(0, 8)
+item_to_spawn = ExtResource("1_80nbo")
+labelNode = NodePath("../ScoreLabel")
+
+[node name="ScoreLabel" parent="." unique_id=978232497 instance=ExtResource("4_fc0e3")]
+offset_left = -568.0
+offset_top = -640.0
+offset_right = -568.0
+offset_bottom = -640.0
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=505087014 node_paths=PackedStringArray("camera")]
+script = ExtResource("5_702ma")
+camera = NodePath("../Camera2D")
+
+[node name="LeftBound" type="StaticBody2D" parent="LevelBounds" unique_id=571364463]
+position = Vector2(-576.00006, -320)
+rotation = 1.5712396
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/LeftBound" unique_id=1138687626]
+shape = SubResource("WorldBoundaryShape2D_feb5d")
+
+[node name="BottomBound" type="StaticBody2D" parent="LevelBounds" unique_id=140392913]
+rotation = -0.0032269245
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/BottomBound" unique_id=246503055]
+shape = SubResource("WorldBoundaryShape2D_feb5d")
+
+[node name="TopBound" type="StaticBody2D" parent="LevelBounds" unique_id=801709651]
+position = Vector2(-2.3841858e-07, -640.00006)
+rotation = -3.1425579
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/TopBound" unique_id=1447894900]
+shape = SubResource("WorldBoundaryShape2D_feb5d")
+
+[node name="RightBound" type="StaticBody2D" parent="LevelBounds" unique_id=1489703694]
+position = Vector2(576, -320.00003)
+rotation = -1.5795249
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds/RightBound" unique_id=1804303103]
+shape = SubResource("WorldBoundaryShape2D_feb5d")
