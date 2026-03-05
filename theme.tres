@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://cd1lefxxr38ud"]
+
+[ext_resource type="FontFile" uid="uid://dhdvh2iywwb8a" path="res://fonts/Jacquard24-Regular.ttf" id="1_e1x85"]
+
+[resource]
+Heading1Label/base_type = &"Label"
+Heading1Label/font_sizes/font_size = 32
+Heading1Label/fonts/font = ExtResource("1_e1x85")

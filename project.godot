@@ -27,6 +27,14 @@ window/size/viewport_height=768
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
+[global_group]
+
+navmesh=""
+
+[gui]
+
+theme/custom="uid://cd1lefxxr38ud"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://y3xp63ipvopj"]
+
+[ext_resource type="Script" uid="uid://bmd1mgo57hnhd" path="res://trap_phase/enemy/trap_phase_enemy.gd" id="1_u2g20"]
+[ext_resource type="Script" uid="uid://bxuis2rskf8hy" path="res://trap_phase/enemy/trap_phase_enemy_navigation.gd" id="2_gbygh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2g20"]
+size = Vector2(8, 8)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u2g20"]
+size = Vector2(8, 8)
+
+[node name="TrapPhaseEnemyBase" type="CharacterBody2D" unique_id=1846824997]
+script = ExtResource("1_u2g20")
+
+[node name="TrapPhaseEnemyNavigation" type="Node" parent="." unique_id=675828461 node_paths=PackedStringArray("_enemy", "_move_timer")]
+script = ExtResource("2_gbygh")
+_enemy = NodePath("..")
+_move_timer = NodePath("MoveTimer")
+_move_duration = 0.25
+metadata/_custom_type_script = "uid://bxuis2rskf8hy"
+
+[node name="MoveTimer" type="Timer" parent="TrapPhaseEnemyNavigation" unique_id=990197069]
+wait_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=698519423]
+shape = SubResource("RectangleShape2D_u2g20")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=837207103]
+texture = SubResource("PlaceholderTexture2D_u2g20")
