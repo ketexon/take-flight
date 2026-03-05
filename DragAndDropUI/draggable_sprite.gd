@@ -1,7 +1,6 @@
 extends Sprite2D
 
 var is_dragging = false
-#var mouse_offset #center mouse on click
 var delay = 2
 var drop_spots = []
 
@@ -28,13 +27,14 @@ func _input(event) -> void:
 				if drop_spot.has_overlapping_areas() && \
 				 drop_spot.get_overlapping_areas().has(self.get_node("Area2D")):
 					#TODO: if overlapping with multiple drop_spots, this will 
+					#pick the furthest one down and right that it overlaps with
 					var snap_position = drop_spot.position
 					var tween = get_tree().create_tween()
-					tween.tween_property(self,"position", snap_position, 0)
+					tween.tween_property(self, "position", snap_position, 0)
+					break
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if is_dragging:
 		var tween = get_tree().create_tween()
-#		subtract mouse_offset from global position if you don't want the tile to automatically center
 		tween.tween_property(self, "position", get_global_mouse_position(), delay * delta)
