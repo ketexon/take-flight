@@ -4,10 +4,18 @@ extends Node
 static var current: TrapPhase = null
 
 
+enum State {
+	PREPARATION,
+	DEFEND,
+	ESCAPE,
+}
+
+
 @export var grid: TrapPhaseGrid
 @export var target_cell: Vector2i
 @export var enemy_spawner: TrapPhaseEnemySpawner
 
+var state: State = State.PREPARATION
 
 var astar_grid: AStarGrid2D:
 	get:

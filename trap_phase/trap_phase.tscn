@@ -9,8 +9,9 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6i4uy"]
 [ext_resource type="Resource" uid="uid://tpbvns16wgcu" path="res://trap_phase/enemy/enemy_database.tres" id="4_ckmea"]
 [ext_resource type="Script" uid="uid://i8vbxgrqgym7" path="res://trap_phase/trap_camera_resizer.gd" id="5_6i4uy"]
-[ext_resource type="Script" uid="uid://bn1kkjfox2fdu" path="res://trap_phase/trap_phase_finish_preparation_button.gd" id="11_8732a"]
 [ext_resource type="PackedScene" uid="uid://cy7dui373yb50" path="res://trap_phase/enemy_queue_ui/enemy_queue_ui.tscn" id="11_pp0gd"]
+[ext_resource type="Script" uid="uid://buvum03pmdrnm" path="res://state_machine/state_machine.gd" id="12_8732a"]
+[ext_resource type="Script" uid="uid://cb0e7twca0jbx" path="res://trap_phase/trap_phases_state_preparation.gd" id="13_4isxw"]
 
 [sub_resource type="Resource" id="Resource_irb3f"]
 script = ExtResource("4_6i4uy")
@@ -23,6 +24,16 @@ script = ExtResource("1_cex60")
 grid = NodePath("TrapPhaseGrid")
 target_cell = Vector2i(1, 6)
 enemy_spawner = NodePath("TrapPhaseEnemySpawner")
+
+[node name="StateMachine" type="Node" parent="." unique_id=585136313 node_paths=PackedStringArray("_start_state")]
+script = ExtResource("12_8732a")
+_start_state = NodePath("TrapPhaseStatePrepration")
+metadata/_custom_type_script = "uid://buvum03pmdrnm"
+
+[node name="TrapPhaseStatePrepration" type="Node" parent="StateMachine" unique_id=1661451994 node_paths=PackedStringArray("_finish_button")]
+script = ExtResource("13_4isxw")
+_finish_button = NodePath("../../CanvasLayer/Button")
+metadata/_custom_type_script = "uid://cb0e7twca0jbx"
 
 [node name="TrapPhaseGrid" type="Node" parent="." unique_id=1785896232 node_paths=PackedStringArray("_obstacle_tilemap_layer")]
 script = ExtResource("1_etsdt")
@@ -39,7 +50,7 @@ _spawn_timer = NodePath("SpawnTimer")
 metadata/_custom_type_script = "uid://64lvvvhhok8"
 
 [node name="SpawnTimer" type="Timer" parent="TrapPhaseEnemySpawner" unique_id=1703640339]
-wait_time = 0.5
+wait_time = 0.7
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=639123770 groups=["navmesh"]]
 tile_map_data = PackedByteArray("AAAAAAAAAAAMAAgAAAABAAAAAAAMAAgAAAACAAAAAAAMAAgAAAADAAAAAAAMAAgAAAAEAAAAAAAMAAgAAAAAAAEAAAAMAAgAAAABAAEAAAAMAAgAAAADAAEAAAAMAAgAAAAEAAEAAAAMAAgAAAAFAAEAAAAMAAgAAAACAAEAAAAMAAgAAAAFAAAAAAAMAAgAAAAGAAAAAAAMAAgAAAAHAAAAAAAMAAgAAAAHAAEAAAAMAAgAAAAGAAEAAAAMAAgAAAAHAAIAAAAMAAgAAAAHAAMAAAAMAAgAAAAHAAQAAAAMAAgAAAAHAAUAAAAMAAgAAAAHAAYAAAAMAAgAAAAHAAcAAAAMAAgAAAAAAAIAAAAMAAgAAAAAAAMAAAAMAAgAAAAAAAQAAAAMAAgAAAAAAAUAAAAMAAgAAAAAAAYAAAAMAAgAAAAAAAcAAAAMAAgAAAABAAIAAAAMAAgAAAABAAMAAAAMAAgAAAABAAQAAAAMAAgAAAABAAUAAAAMAAgAAAABAAYAAAAMAAgAAAABAAcAAAAMAAgAAAACAAIAAAAMAAgAAAACAAMAAAAMAAgAAAACAAQAAAAMAAgAAAACAAUAAAAMAAgAAAACAAYAAAAMAAgAAAACAAcAAAAMAAgAAAADAAIAAAAMAAgAAAADAAMAAAAMAAgAAAADAAQAAAAMAAgAAAADAAUAAAAMAAgAAAADAAYAAAAMAAgAAAADAAcAAAAMAAgAAAAEAAIAAAAMAAgAAAAEAAMAAAAMAAgAAAAEAAQAAAAMAAgAAAAEAAUAAAAMAAgAAAAEAAYAAAAMAAgAAAAEAAcAAAAMAAgAAAAFAAMAAAAMAAgAAAAFAAQAAAAMAAgAAAAFAAUAAAAMAAgAAAAFAAYAAAAMAAgAAAAFAAcAAAAMAAgAAAAGAAIAAAAMAAgAAAAGAAMAAAAMAAgAAAAGAAQAAAAMAAgAAAAGAAUAAAAMAAgAAAAGAAYAAAAMAAgAAAAGAAcAAAAMAAgAAAAFAAIAAAAMAAgAAAA=")
@@ -92,4 +103,3 @@ position = Vector2(60, 4)
 offset_right = 8.0
 offset_bottom = 8.0
 text = "start spawning enemies <3"
-script = ExtResource("11_8732a")
