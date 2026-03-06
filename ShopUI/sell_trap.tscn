@@ -11,9 +11,10 @@ gradient = SubResource("Gradient_lsc4n")
 [node name="SellTrap" type="Control" unique_id=715731312 node_paths=PackedStringArray("trap_frame")]
 custom_minimum_size = Vector2(134, 150)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.133
+anchor_bottom = 0.20400001
+offset_right = -0.54499817
+offset_bottom = 0.32798767
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lsc4n")

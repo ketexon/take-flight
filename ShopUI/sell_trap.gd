@@ -2,6 +2,7 @@ extends Control
 class_name SellTrap
 
 @export var trap_frame: TextureRect
+@export var trap_type: PackedScene
 var hovering: bool
 
 func _process(_delta):
@@ -25,4 +26,5 @@ func _input(event) -> void:
 			#TODO: on click, add logic to check the amount of resources a player has
 			#if enough, spawn the trap and allow them to drag
 			#else do nothing
-			pass
+			self.queue_free.call_deferred()
+		

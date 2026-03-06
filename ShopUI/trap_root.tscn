@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://daavuy752i1yf"]
+
+[ext_resource type="Script" uid="uid://cg1jjtn4im74s" path="res://ShopUI/trap_root.gd" id="1_faw8f"]
+[ext_resource type="Texture2D" uid="uid://doyx2qvxarm21" path="res://icon.svg" id="2_fr8xb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cje1j"]
+size = Vector2(138, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr8xb"]
+size = Vector2(359, 331.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_faw8f"]
+
+[node name="TrapRoot" type="Node2D" unique_id=852889042 node_paths=PackedStringArray("sprite", "hit_box")]
+script = ExtResource("1_faw8f")
+sprite = NodePath("TrapSprite")
+hit_box = NodePath("TrapHitBox")
+
+[node name="TrapHitBox" type="Area2D" parent="." unique_id=1561698764]
+position = Vector2(41, 41)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapHitBox" unique_id=651153798]
+position = Vector2(22, 25)
+shape = SubResource("RectangleShape2D_cje1j")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=927529672]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_fr8xb")
+
+[node name="TrapEffectRadius" type="Area2D" parent="." unique_id=2022066571]
+position = Vector2(41, 41)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapEffectRadius" unique_id=1021690631]
+position = Vector2(24, 19)
+shape = SubResource("RectangleShape2D_fr8xb")
+
+[node name="ColorRect" type="ColorRect" parent="TrapEffectRadius" unique_id=1574637500]
+offset_left = -154.0
+offset_top = -148.0
+offset_right = 203.0
+offset_bottom = 185.0
+color = Color(0.53333336, 0.28627452, 1, 0.3137255)
+
+[node name="TrapSprite" type="AnimatedSprite2D" parent="." unique_id=1925100584]
+position = Vector2(41, 41)
+sprite_frames = SubResource("SpriteFrames_faw8f")
+
+[connection signal="area_entered" from="TrapHitBox" to="." method="_on_trap_hit_box_area_entered"]
+[connection signal="area_entered" from="TrapEffectRadius" to="." method="_on_trap_effect_radius_area_entered"]
+[connection signal="area_exited" from="TrapEffectRadius" to="." method="_on_trap_effect_radius_area_exited"]
