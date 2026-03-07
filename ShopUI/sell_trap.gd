@@ -3,15 +3,12 @@ class_name SellTrap
 
 @export var trap_frame: TextureRect
 @export var trap_type: PackedScene
+@export var cost: int
 var hovering: bool
+var tree_root: Node
 
-func _process(_delta):
-	if is_mouse_over_card():
-		hovering = true
-		trap_frame.scale = Vector2(1.2, 1.2)
-	else:
-		hovering = false
-		trap_frame.scale = Vector2(1, 1)
+func _ready():
+	tree_root = get_tree().root
 
 #Detects if mouse is over card sprite
 func is_mouse_over_card() -> bool:
@@ -24,7 +21,18 @@ func _input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed and hovering:
 			#TODO: on click, add logic to check the amount of resources a player has
-			#if enough, spawn the trap and allow them to drag
-			#else do nothing
-			self.queue_free.call_deferred()
+			#if (player.money >= cost):
+			var sell_trap_instance = trap_type.instantiate()
+			tree_root.add_child(sell_trap_instance)
+			var viewport_center = get_viewport_rect().size / 2
+			sell_trap_instance.position = viewport_center
 		
+
+
+func _on_trap_image_mouse_entered() -> void:
+	trap_frame.scale = Vector2(1.2, 1.2)
+	
+
+
+func _on_trap_image_mouse_exited() -> void:
+	trap_frame.scale = Vector2(1, 1)
