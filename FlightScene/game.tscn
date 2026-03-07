@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://biaicsuf7xwup" path="res://FlightScene/projectile_spawner.gd" id="6_l7fs5"]
 [ext_resource type="PackedScene" uid="uid://q8vieft7384c" path="res://FlightScene/DuckProjectile.tscn" id="7_nr61c"]
 [ext_resource type="PackedScene" uid="uid://b5wew8nks50rt" path="res://FlightScene/ArrowProjectile.tscn" id="8_5sdl1"]
+[ext_resource type="PackedScene" uid="uid://bx20epsh1w765" path="res://FlightScene/WallProjectile.tscn" id="9_pdtmo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_feb5d"]
 
@@ -64,5 +65,5 @@ shape = SubResource("WorldBoundaryShape2D_feb5d")
 
 [node name="ProjectileSpawner" type="Node2D" parent="." unique_id=778812539 node_paths=PackedStringArray("player")]
 script = ExtResource("6_l7fs5")
-projectiles = Array[PackedScene]([ExtResource("7_nr61c"), ExtResource("8_5sdl1")])
+projectiles = Array[PackedScene]([ExtResource("7_nr61c"), ExtResource("8_5sdl1"), ExtResource("9_pdtmo")])
 player = NodePath("../Player")
