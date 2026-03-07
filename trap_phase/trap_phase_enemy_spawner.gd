@@ -3,13 +3,15 @@ extends Node
 
 @export var _enemy_count: int = 5
 @export var _enemy_database: TrapPhaseEnemyDatabase
-@export var _enemy_spawn_location: Node2D
 @export var _enemy_container: Node
 @export var _spawn_timer: Timer
 
 var enemy_queue: Array[TrapPhaseEnemyData] = []
 
+var enemies_killed := 0
+
 signal enemy_spawned(enemy: TrapPhaseEnemy)
+signal all_enemies_killed()
 
 
 func _ready() -> void:
@@ -33,7 +35,9 @@ func _spawn_enemy() -> void:
 		return
 	var enemy_data: TrapPhaseEnemyData = enemy_queue.pop_front()
 	var enemy: TrapPhaseEnemy = enemy_data.packed_scene.instantiate()
-	enemy.global_position = _enemy_spawn_location.global_position
+	enemy.global_position = TrapPhase.current.grid.get_cell_center(
+		TrapPhase.current.grid.door.cell
+	)
 	_enemy_container.add_child(enemy)
 	
 	enemy_spawned.emit(enemy)
@@ -41,3 +45,9 @@ func _spawn_enemy() -> void:
 	if enemy_queue.is_empty():
 		_spawn_timer.timeout.disconnect(_spawn_enemy)
 		_spawn_timer.stop()
+
+
+func on_enemy_killed() -> void:
+	enemies_killed += 1
+	if enemies_killed == _enemy_count:
+		all_enemies_killed.emit()

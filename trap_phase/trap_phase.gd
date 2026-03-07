@@ -14,6 +14,7 @@ enum State {
 @export var grid: TrapPhaseGrid
 @export var target_cell: Vector2i
 @export var enemy_spawner: TrapPhaseEnemySpawner
+@export var player: TrapPhasePlayer
 
 var state: State = State.PREPARATION
 

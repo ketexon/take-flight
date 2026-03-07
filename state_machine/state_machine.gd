@@ -2,6 +2,7 @@ class_name StateMachine
 extends Node
 
 
+@export var _start_first_child: bool = true
 @export var _start_state: StateMachineState
 
 
@@ -9,6 +10,8 @@ var active_state: StateMachineState = null
 
 
 func _ready() -> void:
+	if _start_state == null and _start_first_child and get_child_count() > 0:
+		_start_state = get_child(0)
 	if _start_state != null:
 		enter(_start_state)
 
