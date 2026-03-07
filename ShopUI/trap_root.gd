@@ -4,7 +4,6 @@ extends Node2D
 @export var hit_box :Area2D
 @export var triggered_animation :SpriteFrames
 #@export var triggered_animation_duration :float #how long the animation plays for
-@export var cost_to_place:int = 10 #used by the shop UI
 @export var num_uses:int = -1 #determines number of times a trap can be triggered
 @export var trigger_delay :float #after a sprite enters the area,
 								# how long until the trap triggers
@@ -12,17 +11,19 @@ extends Node2D
 @export var recharge_time :float #possible delay before trap can reactivate
 @export var trigger_timer :float #if set, the trap will run on a timer
 								#the logic will ignore recharge time if set
+@export var cost:int #filled when trap is spawned by UI
+								
 var enabled = true #whether the trap is able to do trap things
 var timestamp = 0
 var is_triggering = false #prevents concurrent triggering
-
 var enemies_in_radius = {}
+
+signal trap_sold
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timestamp = Time.get_ticks_usec()
 	sprite.stop()
-	#sprite.connect("animation_finished", Callable(self, "_on_trap_animation_finished"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -99,3 +100,10 @@ func _on_trap_sprite_animation_finished() -> void:
 	sprite.pause()
 	if(num_uses == 0):
 		self.queue_free.call_deferred()
+
+
+func _on_trap_hit_box_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+		if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
+			emit_signal("trap_sold", [cost])
+			print("Refunded %d gold" %cost)
+			self.queue_free.call_deferred()

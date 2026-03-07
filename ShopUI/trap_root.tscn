@@ -90,6 +90,7 @@ animation = &"sample"
 
 [connection signal="area_entered" from="TrapHitBox" to="." method="_on_trap_hit_box_area_entered"]
 [connection signal="body_entered" from="TrapHitBox" to="." method="_on_trap_hit_box_body_entered"]
+[connection signal="input_event" from="TrapHitBox" to="." method="_on_trap_hit_box_input_event"]
 [connection signal="area_entered" from="TrapEffectRadius" to="." method="_on_trap_effect_radius_area_entered"]
 [connection signal="area_exited" from="TrapEffectRadius" to="." method="_on_trap_effect_radius_area_exited"]
 [connection signal="body_entered" from="TrapEffectRadius" to="." method="_on_trap_effect_radius_body_entered"]
