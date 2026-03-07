@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @export var sprite :AnimatedSprite2D
 @export var hit_box :Area2D
@@ -26,7 +26,7 @@ func _ready() -> void:
 	sprite.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (not enabled and Time.get_ticks_usec() > timestamp):
 		print("trap re-enabled")
 		enabled = true
@@ -58,7 +58,7 @@ func _on_trap_effect_radius_area_entered(area: Area2D) -> void:
 	
 	
 func _on_trap_hit_box_body_entered(_body: Node2D) -> void:
-	if (not enabled or is_triggering): pass
+	if (not enabled or is_triggering): return
 	enabled = false
 	is_triggering = true
 	print("Trap triggered")
@@ -102,7 +102,7 @@ func _on_trap_sprite_animation_finished() -> void:
 		self.queue_free.call_deferred()
 
 
-func _on_trap_hit_box_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_trap_click_box_gui_input(event: InputEvent) -> void:
 		if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
 			emit_signal("trap_sold", [cost])
 			print("Refunded %d gold" %cost)

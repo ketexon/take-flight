@@ -14,6 +14,7 @@ offset_right = 3.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ip0xj")
 sell_trap = ExtResource("2_j7ar4")
 trap_container = NodePath("ScrollContainer/TrapHolder")
@@ -24,6 +25,7 @@ offset_left = 26.0
 offset_top = 75.0
 offset_right = 242.0
 offset_bottom = 723.0
+mouse_filter = 2
 color = Color(0, 0.4, 0.5529412, 1)
 
 [node name="Label" type="Label" parent="." unique_id=721804564]

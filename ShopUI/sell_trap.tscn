@@ -27,6 +27,7 @@ cost = 5
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 150.0
+mouse_filter = 0
 texture = SubResource("GradientTexture2D_ebtij")
 
 [node name="CostLabel" type="Label" parent="TrapImage" unique_id=387828881]

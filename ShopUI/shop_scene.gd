@@ -6,6 +6,6 @@ class_name Shop
 
 func _ready() -> void:
  #Create 5 sell traps
-	for i in range(10):
+	for i in range(4):
 		var sell_trap_instance = sell_trap.instantiate()
 		trap_container.add_child(sell_trap_instance)
