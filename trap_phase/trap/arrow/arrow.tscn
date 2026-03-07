@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b6v6hjymlpv4f"]
+
+[ext_resource type="Script" uid="uid://dcbvwdokvgsif" path="res://trap_phase/trap/arrow/trap_arrow.gd" id="1_txvsq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dafls"]
+size = Vector2(8, 2)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dafls"]
+size = Vector2(8, 2)
+
+[node name="arrow" type="Area2D" unique_id=1695489116]
+rotation = -3.1415925
+script = ExtResource("1_txvsq")
+_speed = 120.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1518081141]
+shape = SubResource("RectangleShape2D_dafls")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1143976690]
+texture = SubResource("PlaceholderTexture2D_dafls")

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://207a1yspi4k5"]
+
+[ext_resource type="PackedScene" uid="uid://y3xp63ipvopj" path="res://trap_phase/enemy/trap_phase_enemy_base.tscn" id="1_mdqgx"]
+
+[node name="Rook" unique_id=15996663 instance=ExtResource("1_mdqgx")]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c53nor341ld54"]
+
+[ext_resource type="Script" uid="uid://dnn0v0kd4ehh7" path="res://trap_phase/trap/trap_trigger.gd" id="1_1xvqj"]
+[ext_resource type="Script" uid="uid://dtvynqkyin8n3" path="res://trap_phase/trap/trap_action_spawn.gd" id="2_a2e5a"]
+
+[sub_resource type="Gradient" id="Gradient_4isxw"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6fxgl"]
+gradient = SubResource("Gradient_4isxw")
+width = 8
+height = 8
+use_hdr = true
+
+[node name="arrow_shooter" type="Node2D" unique_id=1174415495 node_paths=PackedStringArray("_action")]
+script = ExtResource("1_1xvqj")
+_action = NodePath("TrapActionSpawn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732712619]
+texture = SubResource("GradientTexture2D_6fxgl")
+
+[node name="TrapActionSpawn" type="Node" parent="." unique_id=1806186279]
+script = ExtResource("2_a2e5a")
+metadata/_custom_type_script = "uid://dtvynqkyin8n3"

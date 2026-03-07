@@ -1,4 +1,10 @@
 class_name TrapPhaseEnemy
-extends CharacterBody2D
+extends TrapPhaseCharacter
+
 
 @export var navigation: TrapPhaseEnemyNavigation
+
+
+func on_killed() -> void:
+	TrapPhase.current.enemy_spawner.on_enemy_killed()
+	navigation.queue_free()

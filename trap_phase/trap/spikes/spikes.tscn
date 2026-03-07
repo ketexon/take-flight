@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqq8pq3a15sgk"]
+
+[ext_resource type="Script" uid="uid://dnn0v0kd4ehh7" path="res://trap_phase/trap/trap_trigger.gd" id="1_sgvoo"]
+[ext_resource type="Script" uid="uid://d0fj6s2ydmaux" path="res://trap_phase/trap/trap_action_kill.gd" id="2_oibn8"]
+
+[sub_resource type="Gradient" id="Gradient_4isxw"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6fxgl"]
+gradient = SubResource("Gradient_4isxw")
+width = 8
+height = 8
+use_hdr = true
+
+[node name="spikes" type="Node2D" unique_id=1174415495]
+script = ExtResource("1_sgvoo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732712619]
+texture = SubResource("GradientTexture2D_6fxgl")
+
+[node name="TrapActionKill" type="Node" parent="." unique_id=1010458670]
+script = ExtResource("2_oibn8")
+metadata/_custom_type_script = "uid://d0fj6s2ydmaux"

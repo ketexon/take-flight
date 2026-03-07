@@ -1,8 +1,15 @@
 [gd_resource type="Theme" format=3 uid="uid://cd1lefxxr38ud"]
 
 [ext_resource type="FontFile" uid="uid://dhdvh2iywwb8a" path="res://fonts/Jacquard24-Regular.ttf" id="1_e1x85"]
+[ext_resource type="FontFile" uid="uid://1dn0vxxqrdam" path="res://fonts/AncizarSerif-VariableFont_wght.ttf" id="2_cjfk0"]
 
 [resource]
 Heading1Label/base_type = &"Label"
-Heading1Label/font_sizes/font_size = 32
+Heading1Label/font_sizes/font_size = 48
 Heading1Label/fonts/font = ExtResource("1_e1x85")
+Heading2Label/base_type = &"Label"
+Heading2Label/font_sizes/font_size = 32
+Heading2Label/fonts/font = ExtResource("1_e1x85")
+Subtitle1Label/base_type = &"Label"
+Subtitle1Label/font_sizes/font_size = 24
+Subtitle1Label/fonts/font = ExtResource("2_cjfk0")
