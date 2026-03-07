@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ccs0ffecr17o4"]
+
+[ext_resource type="Texture2D" uid="uid://b4no5crd5prc6" path="res://assets/flight_dragon/dragon1.png" id="1_mtiqs"]
+[ext_resource type="Texture2D" uid="uid://did4ovtgrnj7d" path="res://assets/flight_dragon/dragon2.png" id="2_mv5ja"]
+[ext_resource type="Texture2D" uid="uid://cimd7fgnbwy5q" path="res://assets/flight_dragon/dragon3.png" id="3_kb1hc"]
+[ext_resource type="Texture2D" uid="uid://5hq5ionyvi46" path="res://assets/flight_dragon/dragon4.png" id="4_1xoks"]
+[ext_resource type="Texture2D" uid="uid://47atwf24mcg0" path="res://assets/flight_dragon/dragon5.png" id="5_32ojg"]
+[ext_resource type="Texture2D" uid="uid://bq2cp5nkb5u5s" path="res://assets/flight_dragon/dragon6.png" id="6_8w3vr"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mtiqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mv5ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kb1hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1xoks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_32ojg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8w3vr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
