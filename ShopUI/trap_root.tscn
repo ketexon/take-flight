@@ -2,6 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cg1jjtn4im74s" path="res://ShopUI/trap_root.gd" id="1_faw8f"]
 [ext_resource type="Texture2D" uid="uid://doyx2qvxarm21" path="res://icon.svg" id="2_fr8xb"]
+[ext_resource type="Texture2D" uid="uid://pmp7447h2jvn" path="res://ShopUI/TestAnimation/run-1.png" id="3_f0bye"]
+[ext_resource type="Texture2D" uid="uid://dmew0xmxusxr" path="res://ShopUI/TestAnimation/run-2.png" id="4_2k4ia"]
+[ext_resource type="Texture2D" uid="uid://trm7ldn8p1mi" path="res://ShopUI/TestAnimation/run-3.png" id="5_35jrp"]
+[ext_resource type="Texture2D" uid="uid://hghqebw1cigb" path="res://ShopUI/TestAnimation/run-4.png" id="6_h4y4r"]
+[ext_resource type="Texture2D" uid="uid://dusx78nymja15" path="res://ShopUI/TestAnimation/run-5.png" id="7_tn7v3"]
+[ext_resource type="Texture2D" uid="uid://dkcq6elgg42kx" path="res://ShopUI/TestAnimation/run-6.png" id="8_6lbuy"]
+[ext_resource type="Texture2D" uid="uid://bsj5ft8mrpfyk" path="res://ShopUI/TestAnimation/run-7.png" id="9_gk173"]
+[ext_resource type="Texture2D" uid="uid://chx7ax1ga2ty8" path="res://ShopUI/TestAnimation/run-8.png" id="10_05lcn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cje1j"]
 size = Vector2(138, 138)
@@ -9,7 +17,37 @@ size = Vector2(138, 138)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr8xb"]
 size = Vector2(359, 331.5)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_faw8f"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_em0nn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_f0bye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2k4ia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_35jrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h4y4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tn7v3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6lbuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gk173")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_05lcn")
+}],
+"loop": false,
+"name": &"sample",
+"speed": 5.0
+}]
 
 [node name="TrapRoot" type="Node2D" unique_id=852889042 node_paths=PackedStringArray("sprite", "hit_box")]
 script = ExtResource("1_faw8f")
@@ -18,8 +56,7 @@ hit_box = NodePath("TrapHitBox")
 
 [node name="TrapHitBox" type="Area2D" parent="." unique_id=1561698764]
 position = Vector2(41, 41)
-collision_layer = 3
-collision_mask = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrapHitBox" unique_id=651153798]
 position = Vector2(22, 25)
@@ -32,8 +69,7 @@ texture = ExtResource("2_fr8xb")
 
 [node name="TrapEffectRadius" type="Area2D" parent="." unique_id=2022066571]
 position = Vector2(41, 41)
-collision_layer = 3
-collision_mask = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrapEffectRadius" unique_id=1021690631]
 position = Vector2(24, 19)
@@ -47,9 +83,15 @@ offset_bottom = 185.0
 color = Color(0.53333336, 0.28627452, 1, 0.3137255)
 
 [node name="TrapSprite" type="AnimatedSprite2D" parent="." unique_id=1925100584]
-position = Vector2(41, 41)
-sprite_frames = SubResource("SpriteFrames_faw8f")
+position = Vector2(69.25, 71.75)
+scale = Vector2(1.7957747, 1.9179105)
+sprite_frames = SubResource("SpriteFrames_em0nn")
+animation = &"sample"
 
 [connection signal="area_entered" from="TrapHitBox" to="." method="_on_trap_hit_box_area_entered"]
+[connection signal="body_entered" from="TrapHitBox" to="." method="_on_trap_hit_box_body_entered"]
 [connection signal="area_entered" from="TrapEffectRadius" to="." method="_on_trap_effect_radius_area_entered"]
 [connection signal="area_exited" from="TrapEffectRadius" to="." method="_on_trap_effect_radius_area_exited"]
+[connection signal="body_entered" from="TrapEffectRadius" to="." method="_on_trap_effect_radius_body_entered"]
+[connection signal="body_exited" from="TrapEffectRadius" to="." method="_on_trap_effect_radius_body_exited"]
+[connection signal="animation_finished" from="TrapSprite" to="." method="_on_trap_sprite_animation_finished"]
