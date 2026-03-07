@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b5wew8nks50rt"]
+
+[ext_resource type="Script" uid="uid://dgit353kaxkh6" path="res://FlightScene/arrow_projectile.gd" id="1_awyre"]
+[ext_resource type="Texture2D" uid="uid://c5ai36o8khlb" path="res://FlightScene/Arrow.png" id="1_vuvao"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_awyre"]
+height = 58.0
+
+[node name="ArrowProjectile" type="Node2D" unique_id=1638458136]
+script = ExtResource("1_awyre")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=798088750]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_vuvao")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1771799213]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1872570754]
+shape = SubResource("CapsuleShape2D_awyre")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1381008795]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

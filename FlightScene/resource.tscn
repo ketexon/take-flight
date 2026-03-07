@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://brba766xwahty"]
+
+[ext_resource type="Script" uid="uid://drtmja3yap8s7" path="res://FlightScene/resource.gd" id="1_cpix3"]
+[ext_resource type="Texture2D" uid="uid://b23ifho7edc8s" path="res://FlightScene/icon.svg" id="2_psx28"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
+radius = 34.0147
+
+[node name="resource" type="Node2D" unique_id=14898128]
+script = ExtResource("1_cpix3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1873903120]
+scale = Vector2(0.54874927, 0.55218023)
+texture = ExtResource("2_psx28")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1571205349]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1215449232]
+shape = SubResource("CircleShape2D_qxf0c")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1701820096]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
