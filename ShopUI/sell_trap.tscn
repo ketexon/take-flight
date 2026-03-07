@@ -36,7 +36,7 @@ offset_left = 137.0
 offset_top = 33.0
 offset_right = 177.0
 offset_bottom = 56.0
-text = "200"
+text = "__"
 
 [node name="CoinIcon" type="TextureRect" parent="TrapImage/CostLabel" unique_id=623889708]
 layout_mode = 0

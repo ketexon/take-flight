@@ -1,22 +1,32 @@
 extends Control
 
+##A reference to the sprite that contains the trigger animation.
 @export var sprite :AnimatedSprite2D
+##An Area2D which is responsible for detecting collisions with players and projectiles.
 @export var hit_box :Area2D
-@export var triggered_animation :SpriteFrames
-#@export var triggered_animation_duration :float #how long the animation plays for
-@export var num_uses:int = -1 #determines number of times a trap can be triggered
-@export var trigger_delay :float #after a sprite enters the area,
-								# how long until the trap triggers
-								#determines when the trigger anim plays
-@export var recharge_time :float #possible delay before trap can reactivate
-@export var trigger_timer :float #if set, the trap will run on a timer
-								#the logic will ignore recharge time if set
+##Determines the number of times a trap can be triggered.
+##If set to a negative number, it will be a single use.
+@export var num_uses:int = -1 
+##After a sprite enters the area, the trap can be configured to wait before activating.
+##The trap will not kill enemies until after its animation finishes playing.
+@export var trigger_delay :float
+##An optional time (in seconds) to prevent the trap reactivating immediately.
+@export var recharge_time :float
+##If set, the trap will run on a timer
+##The logic will ignore recharge time if a trigger_timer is set
+@export var trigger_timer :float 							
+##An int representing the cost to place the trap.
+##This is usally overridden by the shop_ui's items
 @export var cost:int #filled when trap is spawned by UI
 								
 var enabled = true #whether the trap is able to do trap things
 var timestamp = 0
 var is_triggering = false #prevents concurrent triggering
 var enemies_in_radius = {}
+var is_dragging = false
+
+const TILE_SIZE = Vector2(128, 128)
+
 
 signal trap_sold
 
@@ -30,6 +40,12 @@ func _process(_delta: float) -> void:
 	if (not enabled and Time.get_ticks_usec() > timestamp):
 		print("trap re-enabled")
 		enabled = true
+	if is_dragging:
+		global_position = get_global_mouse_position().snapped(TILE_SIZE) + TILE_SIZE / 2.0
+
+#func _physics_process(delta: float) -> void:
+	#if is_dragging:
+		#global_position = get_global_mouse_position().snapped(TILE_SIZE) + TILE_SIZE / 2.0
 
 
 func _on_trap_hit_box_area_entered(_area: Area2D) -> void:
@@ -103,7 +119,15 @@ func _on_trap_sprite_animation_finished() -> void:
 
 
 func _on_trap_click_box_gui_input(event: InputEvent) -> void:
-		if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
-			emit_signal("trap_sold", [cost])
-			print("Refunded %d gold" %cost)
-			self.queue_free.call_deferred()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			#if get_rect().has_point(to_local(event.position)):
+				print('down')
+				is_dragging = true
+		else:
+			is_dragging = false
+	
+	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
+		emit_signal("trap_sold", [cost])
+		print("Refunded %d gold" %cost)
+		self.queue_free.call_deferred()

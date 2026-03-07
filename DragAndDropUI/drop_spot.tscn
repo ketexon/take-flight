@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://de3o44qbuxhfp"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_oqb13"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbjr4"]
 size = Vector2(128, 128)
 
-[node name="DropSpot" type="Area2D" unique_id=1849400498 groups=["drop_spot_group"]]
+[sub_resource type="Gradient" id="Gradient_oqb13"]
+colors = PackedColorArray(0.1728327, 0.17283267, 0.17283267, 1, 0.6872149, 0.68721503, 0.6872149, 1)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1698896255]
-scale = Vector2(128, 128)
-mesh = SubResource("QuadMesh_oqb13")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vbjr4"]
+gradient = SubResource("Gradient_oqb13")
+
+[node name="DropSpot" type="Area2D" unique_id=1849400498 groups=["drop_spot_group"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=568293830]
 position = Vector2(0, -4.7683716e-06)
 shape = SubResource("RectangleShape2D_vbjr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1495654019]
+texture = SubResource("GradientTexture1D_vbjr4")
