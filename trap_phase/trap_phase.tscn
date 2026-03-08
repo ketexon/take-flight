@@ -13,11 +13,13 @@
 [ext_resource type="Script" uid="uid://i8vbxgrqgym7" path="res://trap_phase/trap_camera_resizer.gd" id="5_6i4uy"]
 [ext_resource type="Script" uid="uid://tx0qt5dqxy5g" path="res://trap_phase/states/trap_phase_state_flee.gd" id="5_dgycb"]
 [ext_resource type="PackedScene" uid="uid://15mvv00e3tot" path="res://trap_phase/player/trap_phase_player.tscn" id="6_yvf5e"]
+[ext_resource type="PackedScene" uid="uid://c7wdd1bb18t" path="res://trap_phase_transition/trap_phase_transition.tscn" id="7_b8yp2"]
 [ext_resource type="Texture2D" uid="uid://bikbtpds3qiip" path="res://assets/chessboard2.png" id="10_evp1g"]
 [ext_resource type="PackedScene" uid="uid://bqq8pq3a15sgk" path="res://trap_phase/trap/spikes/spikes.tscn" id="11_1vh1o"]
 [ext_resource type="PackedScene" uid="uid://cy7dui373yb50" path="res://trap_phase/enemy_queue_ui/enemy_queue_ui.tscn" id="11_pp0gd"]
 [ext_resource type="Script" uid="uid://buvum03pmdrnm" path="res://state_machine/state_machine.gd" id="12_8732a"]
 [ext_resource type="Script" uid="uid://cb0e7twca0jbx" path="res://trap_phase/states/trap_phase_state_preparation.gd" id="13_4isxw"]
+[ext_resource type="PackedScene" uid="uid://dirjd4u8goyqf" path="res://ui/scene_transition/scene_transition.tscn" id="14_esqvv"]
 [ext_resource type="PackedScene" uid="uid://c5eickyjuxvkx" path="res://ui/modal/modal.tscn" id="16_hym81"]
 [ext_resource type="Script" uid="uid://bo2quqtv083ll" path="res://trap_phase/trap_phase_door.gd" id="17_dafls"]
 [ext_resource type="PackedScene" uid="uid://c53nor341ld54" path="res://trap_phase/trap/arrow/arrow_shooter.tscn" id="19_1vh1o"]
@@ -44,7 +46,7 @@ metadata/_custom_type_script = "uid://dncw2icq2lxfx"
 
 [node name="TrapPhaseStatePrepration" type="Node" parent="StateMachine" unique_id=1661451994 node_paths=PackedStringArray("_finish_button")]
 script = ExtResource("13_4isxw")
-_finish_button = NodePath("../../YSort/CanvasLayer/Button")
+_finish_button = NodePath("../../CanvasLayer/Button")
 metadata/_custom_type_script = "uid://cb0e7twca0jbx"
 
 [node name="TrapPhaseStateWave" type="Node" parent="StateMachine" unique_id=516388083]
@@ -53,6 +55,7 @@ metadata/_custom_type_script = "uid://dykgoyce17pbo"
 
 [node name="TrapPhaseStateFlee" type="Node" parent="StateMachine" unique_id=1083156010]
 script = ExtResource("5_dgycb")
+_transition_scene = ExtResource("7_b8yp2")
 metadata/_custom_type_script = "uid://tx0qt5dqxy5g"
 
 [node name="TrapPhaseGrid" type="Node" parent="." unique_id=1785896232 node_paths=PackedStringArray("_obstacle_tilemap_layer")]
@@ -76,6 +79,24 @@ position = Vector2(559, 576)
 texture = ExtResource("10_evp1g")
 
 [node name="TrapsRoot" type="Node2D" parent="." unique_id=690409109]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1865336342]
+
+[node name="Modal" parent="CanvasLayer" unique_id=111782720 instance=ExtResource("16_hym81")]
+
+[node name="EnemyQueueUI" parent="CanvasLayer" unique_id=1106208022 instance=ExtResource("11_pp0gd")]
+offset_left = 0.0
+offset_right = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=282246219]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "start spawning enemies <3"
+metadata/_edit_use_anchors_ = true
+
+[node name="SceneTransition" parent="CanvasLayer" unique_id=1967025034 node_paths=PackedStringArray("_follow") instance=ExtResource("14_esqvv")]
+_follow = NodePath("../../YSort/Player")
 
 [node name="YSort" type="Node2D" parent="." unique_id=816305819]
 y_sort_enabled = true
@@ -115,21 +136,6 @@ exit_dir = Vector2i(0, -1)
 
 [node name="EnemyContainer" type="Node2D" parent="YSort" unique_id=573658400]
 y_sort_enabled = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="YSort" unique_id=1865336342]
-
-[node name="Modal" parent="YSort/CanvasLayer" unique_id=111782720 instance=ExtResource("16_hym81")]
-
-[node name="EnemyQueueUI" parent="YSort/CanvasLayer" unique_id=1106208022 instance=ExtResource("11_pp0gd")]
-offset_left = 0.0
-offset_right = 0.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="YSort/CanvasLayer" unique_id=282246219]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "start spawning enemies <3"
-metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="YSort" unique_id=15996663 instance=ExtResource("6_yvf5e")]
 position = Vector2(72, 1080)

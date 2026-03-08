@@ -7,4 +7,6 @@ extends StateMachineState
 
 func on_entered() -> void:
 	await get_tree().create_timer(_delay).timeout
+	SceneTransition.instance.transition_in()
+	await SceneTransition.instance.transition_finished
 	state_machine.transition()
