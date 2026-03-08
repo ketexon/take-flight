@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cm717iql5h86f"
-path="res://.godot/imported/hole:dropshadow_sm.png-f1e0def5d1b1e3c0e992d755c88c58ab.ctex"
+path="res://.godot/imported/hole_dropshadow_sm.png-899d82aa62356b75ad41a7ce58d22dd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/traps/hole:dropshadow_sm.png"
-dest_files=["res://.godot/imported/hole:dropshadow_sm.png-f1e0def5d1b1e3c0e992d755c88c58ab.ctex"]
+source_file="res://assets/traps/hole_dropshadow_sm.png"
+dest_files=["res://.godot/imported/hole_dropshadow_sm.png-899d82aa62356b75ad41a7ce58d22dd8.ctex"]
 
 [params]
 
