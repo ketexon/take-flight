@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://blbfxd61r1qx3"]
+
+[ext_resource type="Script" uid="uid://cy5txwcsb6uhi" path="res://ShopUI/sell_trap.gd" id="1_lsc4n"]
+[ext_resource type="Texture2D" uid="uid://66nditpclr66" path="res://ShopUI/coin.png" id="1_x1pbe"]
+[ext_resource type="PackedScene" uid="uid://daavuy752i1yf" path="res://ShopUI/trap_root.tscn" id="2_ebtij"]
+
+[sub_resource type="Gradient" id="Gradient_lsc4n"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ebtij"]
+gradient = SubResource("Gradient_lsc4n")
+
+[node name="ShopTrap" type="Control" unique_id=715731312 node_paths=PackedStringArray("trap_frame")]
+custom_minimum_size = Vector2(134, 150)
+layout_mode = 3
+anchor_right = 0.133
+anchor_bottom = 0.20400001
+offset_right = -0.54499817
+offset_bottom = 0.32798767
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lsc4n")
+trap_frame = NodePath("TrapImage")
+trap_type = ExtResource("2_ebtij")
+cost = 5
+
+[node name="TrapImage" type="TextureRect" parent="." unique_id=217012575]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 150.0
+mouse_filter = 0
+texture = SubResource("GradientTexture2D_ebtij")
+
+[node name="CostLabel" type="Label" parent="TrapImage" unique_id=387828881]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 33.0
+offset_right = 177.0
+offset_bottom = 56.0
+text = "__"
+
+[node name="CoinIcon" type="TextureRect" parent="TrapImage/CostLabel" unique_id=623889708]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 32.0
+offset_bottom = 60.0
+texture = ExtResource("1_x1pbe")
+
+[connection signal="mouse_entered" from="TrapImage" to="." method="_on_trap_image_mouse_entered"]
+[connection signal="mouse_exited" from="TrapImage" to="." method="_on_trap_image_mouse_exited"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c51sskyjmj6tm"]
+
+[ext_resource type="Texture2D" uid="uid://doyx2qvxarm21" path="res://icon.svg" id="1_jqd1j"]
+[ext_resource type="Script" uid="uid://d28gqfl82dpta" path="res://DragAndDropUI/draggable_sprite.gd" id="2_qjvob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjvob"]
+size = Vector2(138, 145)
+
+[node name="DraggableTrapSprite" type="Sprite2D" unique_id=1606048795]
+top_level = true
+texture = ExtResource("1_jqd1j")
+script = ExtResource("2_qjvob")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=417480543]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1072438546]
+shape = SubResource("RectangleShape2D_qjvob")
