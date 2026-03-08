@@ -298,6 +298,7 @@ position = Vector2(712, -153)
 script = ExtResource("4_2mywx")
 tween_resource = SubResource("Resource_au7bf")
 tween_on_load = false
+draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="TrapCameraResizer" type="Node" parent="Camera2D" unique_id=781818825 node_paths=PackedStringArray("_phantom_camera")]

@@ -11,9 +11,8 @@ size = Vector2(8, 8)
 [node name="TrapPhaseCharacterBase" type="Area2D" unique_id=1243105625]
 input_pickable = false
 
-[node name="TrapPhaseCharacterMovement" type="Node" parent="." unique_id=1853261989 node_paths=PackedStringArray("_character")]
+[node name="TrapPhaseCharacterMovement" type="Node" parent="." unique_id=1853261989]
 script = ExtResource("2_k3vob")
-_character = NodePath("")
 metadata/_custom_type_script = "uid://bk3l5nds2prp8"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=698519423]
