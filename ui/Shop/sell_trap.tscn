@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d3mpa61voy8r2"]
 
 [ext_resource type="Script" uid="uid://cy5txwcsb6uhi" path="res://ShopUI/sell_trap.gd" id="1_t8nnj"]
-[ext_resource type="PackedScene" uid="uid://daavuy752i1yf" path="res://ShopUI/trap_root.tscn" id="2_n5f2j"]
 [ext_resource type="Texture2D" uid="uid://bxos5u6q6ng2a" path="res://assets/resourcepawn.png" id="3_t8nnj"]
 
 [node name="ShopTrap" type="Control" unique_id=715731312 node_paths=PackedStringArray("trap_frame")]
@@ -16,7 +15,6 @@ grow_vertical = 2
 script = ExtResource("1_t8nnj")
 trap_frame = NodePath("TrapImage")
 cost = 5
-trap_type = ExtResource("2_n5f2j")
 
 [node name="TrapImage" type="TextureRect" parent="." unique_id=217012575]
 layout_mode = 0

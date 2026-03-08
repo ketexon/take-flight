@@ -7,22 +7,35 @@ extends Control
 @export var texture :Texture
 ##The trap which will be spawned once the state_controller's scene transitions
 ##to spawning enemies
-@export var trap_to_spawn : PackedScene
+@export var trap_to_spawn : Resource
 ##The scene which will be spawned and linked to the trap_to_spawn 
-@export var disjoint_trigger_to_spawn :PackedScene
+@export var disjoint_trigger_to_spawn :Resource
 ##This will be refunded to the player if the icon is deleted
 @export var cost:int #filled when trap is spawned by UI
+##Will have its signal listened for before registering the traps 
+@export var _finish_button:BaseButton
 var is_dragging = false
+
+const TILE_SIZE = Vector2(64, 64)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	texture_rect.texture = texture
+	_finish_button.pressed.connect(_spawn_trap)
+
+
+func _spawn_trap():
+	print("Spawning a trap and plate")
+	var plate = disjoint_trigger_to_spawn.instantiate()
+	plate.add_child()
+	pass
 
 
 func _process(_delta: float) -> void:
 	if is_dragging:
 		global_position = get_global_mouse_position() - texture_rect.size / 2
+		global_position = global_position.snapped(TILE_SIZE)
 		
 
 func _on_texture_rect_gui_input(event: InputEvent) -> void:
