@@ -5,7 +5,6 @@ extends Control
 @export var texture_rect :TextureRect
 ##The image icon for this representation
 @export var texture :Texture
-
 ##The trap which will be spawned once the state_controller's scene transitions
 ##to spawning enemies
 @export var trap_to_spawn : Resource
@@ -28,6 +27,9 @@ func _ready() -> void:
 
 func _spawn_trap():
 	print("Spawning a trap and plate")
+	var plate = disjoint_trigger_to_spawn.instantiate()
+	plate.add_child()
+	pass
 
 
 func _process(_delta: float) -> void:

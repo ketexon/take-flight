@@ -23,12 +23,6 @@ func _ready() -> void:
 	
 func _spawn_trap():
 	print("Spawning normal trap")
-	var trap_scene = trap_to_spawn.instantiate()
-	trap_scene.position = Vector2(self.position)
-	self.get_parent().add_child(trap_scene)
-	
-	self.queue_free.call_deferred()
-	
 	
 
 func _process(_delta: float) -> void:

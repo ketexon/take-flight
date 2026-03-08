@@ -24,7 +24,6 @@ func _ready():
 	is_hovered = false
 	self.get_child(0).get_child(0).text = "%d" % [cost]
 	tree_root = get_tree().root
-	
 
 func _input(event) -> void: 
 	#Detects if mouse is hovering and clicks

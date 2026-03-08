@@ -24,25 +24,7 @@
 [ext_resource type="Script" uid="uid://bo2quqtv083ll" path="res://trap_phase/trap_phase_door.gd" id="17_dafls"]
 [ext_resource type="PackedScene" uid="uid://c53nor341ld54" path="res://trap_phase/trap/arrow/arrow_shooter.tscn" id="19_1vh1o"]
 [ext_resource type="PackedScene" uid="uid://p0msl8qocisn" path="res://trap_phase/trap/pressure_plate/pressure_plate.tscn" id="21_evp1g"]
-[ext_resource type="Script" uid="uid://chxd54cxdykwv" path="res://trap_phase/trap_phase_entity.gd" id="22_yqecm"]
 [ext_resource type="PackedScene" uid="uid://d3pha0p35darl" path="res://ui/Shop/shop_scene.tscn" id="25_45ci6"]
-
-[sub_resource type="GDScript" id="GDScript_6k4jr"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print(self.name)
-	pass # Replace with function body.
-
-func _exit_tree():
-	print(\"YSort left the tree\")
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [sub_resource type="Resource" id="Resource_irb3f"]
 script = ExtResource("4_6i4uy")
@@ -124,9 +106,7 @@ metadata/_edit_use_anchors_ = true
 _follow = NodePath("../../YSort/Player")
 
 [node name="YSort" type="Node2D" parent="." unique_id=816305819]
-unique_name_in_owner = true
 y_sort_enabled = true
-script = SubResource("GDScript_6k4jr")
 
 [node name="Obstacles" type="TileMapLayer" parent="YSort" unique_id=1065826115 groups=["navmesh"]]
 y_sort_enabled = true
@@ -166,7 +146,6 @@ y_sort_enabled = true
 
 [node name="Player" parent="YSort" unique_id=15996663 instance=ExtResource("6_yvf5e")]
 position = Vector2(72, 1080)
-script = ExtResource("22_yqecm")
 metadata/_custom_type_script = "uid://chxd54cxdykwv"
 
 [node name="spikes" parent="YSort" unique_id=1174415495 instance=ExtResource("11_1vh1o")]
