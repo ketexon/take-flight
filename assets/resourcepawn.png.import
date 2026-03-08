@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwwl28f54opav"
-path="res://.godot/imported/hole:dropshadow.png-ec3251c928b1a34f8c653452377018b3.ctex"
+uid="uid://ty3aahabktic"
+path="res://.godot/imported/resourcepawn.png-24057d694a236b44d757c7c4fa0a321b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/traps/hole:dropshadow.png"
-dest_files=["res://.godot/imported/hole:dropshadow.png-ec3251c928b1a34f8c653452377018b3.ctex"]
+source_file="res://assets/resourcepawn.png"
+dest_files=["res://.godot/imported/resourcepawn.png-24057d694a236b44d757c7c4fa0a321b.ctex"]
 
 [params]
 
