@@ -11,3 +11,7 @@ func _physics_process(_delta):
 	
 	# Move the character and handle collisions
 	move_and_slide()
+
+
+func die():
+	print("holy shit he dead asf fr")

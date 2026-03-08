@@ -5,6 +5,7 @@ var time = 0
 var amplitude = randi_range(25,200) # Height of the wave
 var frequency = randi_range(1,4)  # Speed of the wave
 var target: Vector2
+var player: CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,4 +31,4 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("You are die")
+	player.die()

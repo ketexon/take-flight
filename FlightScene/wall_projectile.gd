@@ -2,6 +2,7 @@ extends Node2D
 
 const SPEED = 50.0
 var target: Vector2
+var player: CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,4 +28,4 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("You are die")
+	player.die()

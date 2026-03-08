@@ -20,6 +20,7 @@ func _on_timer_timeout():
 	#pick a random projectile from the export array and spawn that bad boy
 	var instance = projectiles.pick_random().instantiate()
 	instance.target = player.global_position
+	instance.player = player
 	add_child(instance)
 	if timer.wait_time > 0:
 		timer.wait_time -= 0.01
