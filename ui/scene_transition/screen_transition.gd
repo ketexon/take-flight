@@ -6,6 +6,10 @@ static var instance: SceneTransition = null
 @export var _duration: float = 1
 @export var _follow: Node2D
 
+var follow:
+	get: return _follow
+	set(v): _follow = v
+
 var center: Vector2 = Vector2.ZERO:
 	set(v):
 		center = v

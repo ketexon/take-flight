@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://p3pd8cwcf01r" path="res://trap_phase_transition/trap_phase_transition.gd" id="1_106pq"]
 [ext_resource type="Texture2D" uid="uid://c0bv7bqf1a7vd" path="res://assets/flight_bgs/clouds.png" id="1_qrbhn"]
 [ext_resource type="Texture2D" uid="uid://bdvqeyyaqy7sx" path="res://assets/flight_bgs/backmtns.png" id="2_1qowe"]
+[ext_resource type="PackedScene" uid="uid://2esoglfn4h38" path="res://FlightScene/game.tscn" id="2_6mel5"]
 [ext_resource type="Texture2D" uid="uid://csk5k8h8iy5rj" path="res://assets/flight_bgs/frontmtns.png" id="3_8bp7a"]
 [ext_resource type="Script" uid="uid://i8vbxgrqgym7" path="res://trap_phase/trap_camera_resizer.gd" id="4_1qowe"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_2mywx"]
@@ -10,7 +11,15 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_32jmo"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_32jmo"]
 [ext_resource type="Texture2D" uid="uid://bnqxr84m5frla" path="res://assets/king pieces/moving king_sm.png" id="9_au7bf"]
+[ext_resource type="Texture2D" uid="uid://bglpnhgd6f322" path="res://assets/dragonsittingWITHKING_sm.png" id="11_2q06h"]
+[ext_resource type="Texture2D" uid="uid://do56k7l0dhc8f" path="res://assets/flight_dragon/dragon1_sm.png" id="11_pv7xm"]
 [ext_resource type="PackedScene" uid="uid://dirjd4u8goyqf" path="res://ui/scene_transition/scene_transition.tscn" id="11_qdmhg"]
+[ext_resource type="Texture2D" uid="uid://v7m3tk36egft" path="res://assets/flight_dragon/dragon2_sm.png" id="12_loejm"]
+[ext_resource type="Texture2D" uid="uid://dgmds13q053cu" path="res://assets/flight_dragon/dragon3_sm.png" id="13_5g7ji"]
+[ext_resource type="Script" uid="uid://57siw6r6ud51" path="res://trap_phase_transition/shake.gd" id="13_xym78"]
+[ext_resource type="Texture2D" uid="uid://byecetydrcykh" path="res://assets/flight_dragon/dragon4_sm.png" id="14_6mel5"]
+[ext_resource type="Texture2D" uid="uid://cmbsei8i7imju" path="res://assets/flight_dragon/dragon5_sm.png" id="15_loejm"]
+[ext_resource type="Texture2D" uid="uid://cssexxlnq7or" path="res://assets/flight_dragon/dragon6_sm.png" id="16_5g7ji"]
 
 [sub_resource type="Resource" id="Resource_au7bf"]
 script = ExtResource("5_32jmo")
@@ -39,10 +48,141 @@ tracks/1/keys = {
 "points": PackedFloat32Array(-4, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DragonsittingSm:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_8bp7a")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("King:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("King:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FlyingDragon:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FlyingDragon:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(995, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FlyingDragon:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-114, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DragonsittingSm:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xym78"]
+resource_name = "fly_away"
+length = 2.905
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlyingDragon:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.43333334, 0.6666667, 0.8333333, 1, 1.2, 1.4333334, 1.6333334, 1.8666668, 2.0333333, 2.2, 2.4, 2.6333334, 2.8333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_pv7xm"), ExtResource("12_loejm"), ExtResource("13_5g7ji"), ExtResource("14_6mel5"), ExtResource("15_loejm"), ExtResource("16_5g7ji"), ExtResource("11_pv7xm"), ExtResource("12_loejm"), ExtResource("13_5g7ji"), ExtResource("14_6mel5"), ExtResource("15_loejm"), ExtResource("16_5g7ji"), ExtResource("11_pv7xm"), ExtResource("12_loejm"), ExtResource("13_5g7ji")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlyingDragon:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(995, -0.25, 0, 0.25, 0, 1590.5132, -0.45555562, -100.73884, 0.083333336, 18.427834),
+"times": PackedFloat32Array(0, 2.7333336)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlyingDragon:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 2, 2),
+"points": PackedFloat32Array(-114, -0.25, 0, 0.25, 0, -295, -0.11111112, 6.7353954, 0.42777783, -25.931273, -252, -0.055555552, 0.32467526, 0.37222227, -2.1753247, -640.26, -0.10000001, 3.222222, 0.20000005, -6.444445, -640.26, -0.11666672, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.6666667, 1.4333333, 2.0333333, 2.7333336)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DragonsittingSm:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_au7bf"]
 resource_name = "trap_transition"
-length = 20.0
+length = 2.82
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,16 +205,68 @@ tracks/1/keys = {
 "points": PackedFloat32Array(-4, -0.25, 0, 0.25, 0, -4, -0.333489, 0, 0, 0, -4, -0.031582993, 0, 0, 0, -54, -0.3962431, -177.5, 0, 0),
 "times": PackedFloat32Array(0, 2.000934, 2.1904318, 2.807828)
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DragonsittingSm:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.7933466, 2.7987714),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_8bp7a"), ExtResource("5_8bp7a"), ExtResource("11_2q06h")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("King:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.7932835, 2.7987623),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shake")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("King:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667, 0.8397131, 1.0063797, 1.1730464, 1.3397131, 1.4881582, 1.6548249, 1.8214915, 1.9881582)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_106pq"]
 _data = {
 &"RESET": SubResource("Animation_106pq"),
+&"fly_away": SubResource("Animation_xym78"),
 &"trap_transition": SubResource("Animation_au7bf")
 }
 
-[node name="TrapPhaseTransition" type="Node2D" unique_id=1125004682 node_paths=PackedStringArray("_animation_player")]
+[node name="TrapPhaseTransition" type="Node2D" unique_id=1125004682 node_paths=PackedStringArray("_animation_player", "_fly_away_dragon")]
 script = ExtResource("1_106pq")
 _animation_player = NodePath("AnimationPlayer")
+_fly_away_dragon = NodePath("FlyingDragon")
+_next_scene = ExtResource("2_6mel5")
 
 [node name="Camera2D2" type="Camera2D" parent="." unique_id=1494654159]
 top_level = true
@@ -105,6 +297,7 @@ texture = ExtResource("3_8bp7a")
 position = Vector2(712, -153)
 script = ExtResource("4_2mywx")
 tween_resource = SubResource("Resource_au7bf")
+tween_on_load = false
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="TrapCameraResizer" type="Node" parent="Camera2D" unique_id=781818825 node_paths=PackedStringArray("_phantom_camera")]
@@ -127,6 +320,7 @@ flip_h = true
 
 [node name="King" type="Sprite2D" parent="." unique_id=1990719621]
 position = Vector2(-96, -4)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_au7bf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=726530097]
@@ -136,3 +330,14 @@ libraries/ = SubResource("AnimationLibrary_106pq")
 
 [node name="SceneTransition" parent="CanvasLayer" unique_id=1967025034 node_paths=PackedStringArray("_follow") instance=ExtResource("11_qdmhg")]
 _follow = NodePath("../../King")
+
+[node name="Shake" type="Node" parent="." unique_id=2014976387 node_paths=PackedStringArray("_target")]
+script = ExtResource("13_xym78")
+_target = NodePath("../DragonsittingSm")
+_amplitude = 5.0
+_duration = 0.2
+metadata/_custom_type_script = "uid://57siw6r6ud51"
+
+[node name="FlyingDragon" type="Sprite2D" parent="." unique_id=1754243868]
+position = Vector2(995, -114)
+scale = Vector2(1.5, 1.5)
