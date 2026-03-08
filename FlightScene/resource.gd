@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = 50.0
+const SPEED = 300.0
 signal pickup
 
 # Called when the node enters the scene tree for the first time.

@@ -1,7 +1,7 @@
 class_name FlightPlayer
 extends CharacterBody2D
 
-@export var speed : float = 300.0
+@export var speed : float = 500.0
 @onready var sprite = $AnimatedSprite2D
 signal dead
 var isDead = false

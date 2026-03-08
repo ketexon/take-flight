@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = 50.0
+const SPEED = 450.0
 var time = 0
 var amplitude = randi_range(25,200) # Height of the wave
 var frequency = randi_range(1,4)  # Speed of the wave

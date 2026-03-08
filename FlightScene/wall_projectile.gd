@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = 50.0
+const SPEED = 450.0
 var target: Vector2
 var player: CharacterBody2D
 

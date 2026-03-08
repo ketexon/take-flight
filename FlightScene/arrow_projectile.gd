@@ -1,6 +1,6 @@
 extends Node2D
 
-const speed = 200.0
+const speed = 600.0
 var time = 0
 var direction: Vector2 = Vector2.LEFT
 var target: Vector2
