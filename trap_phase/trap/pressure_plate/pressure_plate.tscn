@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://p0msl8qocisn"]
+
+[ext_resource type="Script" uid="uid://dnn0v0kd4ehh7" path="res://trap_phase/trap/trap_trigger.gd" id="1_a3ymo"]
+[ext_resource type="Texture2D" uid="uid://da10j858whj56" path="res://assets/traps/pressureplate_sm.png" id="2_5mm73"]
+
+[node name="pressure_plate" type="Node2D" unique_id=868492361]
+script = ExtResource("1_a3ymo")
+metadata/_custom_type_script = "uid://dnn0v0kd4ehh7"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2048079709]
+position = Vector2(-2, 1.0728836e-06)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_5mm73")
