@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://tx0qt5dqxy5g" path="res://trap_phase/states/trap_phase_state_flee.gd" id="5_dgycb"]
 [ext_resource type="PackedScene" uid="uid://15mvv00e3tot" path="res://trap_phase/player/trap_phase_player.tscn" id="6_yvf5e"]
 [ext_resource type="PackedScene" uid="uid://c7wdd1bb18t" path="res://trap_phase_transition/trap_phase_transition.tscn" id="7_b8yp2"]
+[ext_resource type="Script" uid="uid://c5b56y81lfism" path="res://trap_phase/states/trap_phase_state_death.gd" id="8_45ci6"]
 [ext_resource type="Texture2D" uid="uid://bikbtpds3qiip" path="res://assets/chessboard2.png" id="10_evp1g"]
 [ext_resource type="PackedScene" uid="uid://bqq8pq3a15sgk" path="res://trap_phase/trap/spikes/spikes.tscn" id="11_1vh1o"]
 [ext_resource type="PackedScene" uid="uid://cy7dui373yb50" path="res://trap_phase/enemy_queue_ui/enemy_queue_ui.tscn" id="11_pp0gd"]
@@ -21,11 +22,15 @@
 [ext_resource type="Script" uid="uid://cb0e7twca0jbx" path="res://trap_phase/states/trap_phase_state_preparation.gd" id="13_4isxw"]
 [ext_resource type="PackedScene" uid="uid://dirjd4u8goyqf" path="res://ui/scene_transition/scene_transition.tscn" id="14_esqvv"]
 [ext_resource type="PackedScene" uid="uid://c5eickyjuxvkx" path="res://ui/modal/modal.tscn" id="16_hym81"]
+[ext_resource type="Script" uid="uid://cqrj6t10bajgp" path="res://trap_phase/trap_phase_you_died.gd" id="16_yqecm"]
 [ext_resource type="Script" uid="uid://bo2quqtv083ll" path="res://trap_phase/trap_phase_door.gd" id="17_dafls"]
 [ext_resource type="PackedScene" uid="uid://c53nor341ld54" path="res://trap_phase/trap/arrow/arrow_shooter.tscn" id="19_1vh1o"]
 [ext_resource type="PackedScene" uid="uid://p0msl8qocisn" path="res://trap_phase/trap/pressure_plate/pressure_plate.tscn" id="21_evp1g"]
 
 [sub_resource type="Resource" id="Resource_irb3f"]
+script = ExtResource("4_6i4uy")
+
+[sub_resource type="Resource" id="Resource_45ci6"]
 script = ExtResource("4_6i4uy")
 
 [node name="TrapPhase" type="Node2D" unique_id=236315749 node_paths=PackedStringArray("grid", "enemy_spawner", "player")]
@@ -69,6 +74,13 @@ script = ExtResource("5_dgycb")
 _transition_scene = ExtResource("7_b8yp2")
 metadata/_custom_type_script = "uid://tx0qt5dqxy5g"
 
+[node name="TrapPhaseStateDeath" type="Node" parent="StateMachine" unique_id=1891942104 node_paths=PackedStringArray("_state_machine", "_pcam", "_you_died")]
+script = ExtResource("8_45ci6")
+_state_machine = NodePath("..")
+_pcam = NodePath("../../FollowPlayerCamera")
+_you_died = NodePath("../../CanvasLayer/You died")
+metadata/_custom_type_script = "uid://c5b56y81lfism"
+
 [node name="TrapPhaseGrid" type="Node" parent="." unique_id=1785896232 node_paths=PackedStringArray("_obstacle_tilemap_layer")]
 script = ExtResource("1_etsdt")
 _obstacle_tilemap_layer = NodePath("../YSort/Obstacles")
@@ -106,6 +118,55 @@ offset_bottom = 8.0
 text = "start spawning enemies <3"
 metadata/_edit_use_anchors_ = true
 
+[node name="You died" type="Control" parent="CanvasLayer" unique_id=1658509746 node_paths=PackedStringArray("_button")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("16_yqecm")
+_button = NodePath("VBoxContainer/Button")
+_menu_scene_path = "uid://sfq0fwfmuoq0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/You died" unique_id=1162407280]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/You died/VBoxContainer" unique_id=1015792277]
+custom_minimum_size = Vector2(600, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/You died/VBoxContainer/Panel" unique_id=1377649567]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Heading" type="Label" parent="CanvasLayer/You died/VBoxContainer/Panel/VBoxContainer" unique_id=2054732392]
+layout_mode = 2
+theme_type_variation = &"Heading1Label"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "You died :("
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/You died/VBoxContainer" unique_id=388361570]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back to menu"
+
 [node name="SceneTransition" parent="CanvasLayer" unique_id=1967025034 node_paths=PackedStringArray("_follow") instance=ExtResource("14_esqvv")]
 _follow = NodePath("../../YSort/Player")
 metadata/_edit_use_anchors_ = true
@@ -117,31 +178,6 @@ y_sort_enabled = true
 y_sort_enabled = true
 tile_map_data = PackedByteArray(0, 0, 0, 0, 5, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 5, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0, 6, 0, 1, 0, 0, 0, 0, 0, 1, 0)
 tile_set = ExtResource("1_whep6")
-
-[node name="Camera2D" type="Camera2D" parent="YSort" unique_id=1040005490]
-top_level = true
-position = Vector2(576, 576)
-editor_draw_limits = true
-
-[node name="PhantomCameraHost" type="Node" parent="YSort/Camera2D" unique_id=1997855261]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("2_hxx32")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="PhantomCamera2D" type="Node2D" parent="YSort" unique_id=238238776]
-position = Vector2(576, 576)
-script = ExtResource("3_ktvvt")
-tween_resource = SubResource("Resource_irb3f")
-tween_on_load = false
-draw_limits = true
-metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
-
-[node name="TrapCameraResizer" type="Node" parent="YSort/PhantomCamera2D" unique_id=760537035 node_paths=PackedStringArray("_phantom_camera")]
-script = ExtResource("5_6i4uy")
-_target_size = Vector2(1728, 1728)
-_phantom_camera = NodePath("..")
-metadata/_custom_type_script = "uid://i8vbxgrqgym7"
 
 [node name="Door" type="Node2D" parent="YSort" unique_id=2141889634]
 position = Vector2(938, 4)
@@ -164,3 +200,41 @@ action = NodePath("../arrow_shooter")
 
 [node name="arrow_shooter" parent="YSort" unique_id=1522509257 instance=ExtResource("19_1vh1o")]
 position = Vector2(799, 1087)
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=238238776]
+position = Vector2(576, 576)
+script = ExtResource("3_ktvvt")
+priority = 10
+tween_resource = SubResource("Resource_irb3f")
+tween_on_load = false
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="TrapCameraResizer" type="Node" parent="PhantomCamera2D" unique_id=760537035 node_paths=PackedStringArray("_phantom_camera")]
+script = ExtResource("5_6i4uy")
+_target_size = Vector2(1728, 1728)
+_phantom_camera = NodePath("..")
+metadata/_custom_type_script = "uid://i8vbxgrqgym7"
+
+[node name="FollowPlayerCamera" type="Node2D" parent="." unique_id=1474964901 node_paths=PackedStringArray("follow_target")]
+visible = false
+top_level = true
+position = Vector2(72, 1080)
+script = ExtResource("3_ktvvt")
+priority = 100
+follow_mode = 2
+follow_target = NodePath("../YSort/Player")
+tween_resource = SubResource("Resource_45ci6")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1040005490]
+top_level = true
+position = Vector2(576, 576)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1997855261]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_hxx32")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"

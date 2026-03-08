@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://u40yk6t1tcuf" path="res://title/chessboardnowall.png" id="2_64gp6"]
 [ext_resource type="PackedScene" uid="uid://dirjd4u8goyqf" path="res://ui/scene_transition/scene_transition.tscn" id="2_crako"]
 [ext_resource type="Script" uid="uid://txf8y6ic23m6" path="res://title/title_play_button.gd" id="2_nx56k"]
-[ext_resource type="PackedScene" uid="uid://dsnnw8ipqrssb" path="res://trap_phase/trap_phase.tscn" id="3_6s8lb"]
 [ext_resource type="Script" uid="uid://beug8yrccmhi4" path="res://title/title_bkg.gd" id="3_64gp6"]
 
 [node name="Title" type="Node2D" unique_id=232027456]
@@ -77,7 +76,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Play"
 script = ExtResource("2_nx56k")
-_scene = ExtResource("3_6s8lb")
+_scene_path = "uid://dsnnw8ipqrssb"
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=747787288]
 anchors_preset = 2

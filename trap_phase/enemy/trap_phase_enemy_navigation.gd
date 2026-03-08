@@ -18,6 +18,12 @@ func _ready() -> void:
 	
 	_move_timer.timeout.connect(_on_move_timer_timeout)
 	_move_timer.start()
+	
+	TrapPhase.current.player.killed.connect(_on_player_killed)
+
+
+func _on_player_killed() -> void:
+	_move_timer.stop()
 
 
 func _on_move_timer_timeout() -> void:
@@ -26,3 +32,8 @@ func _on_move_timer_timeout() -> void:
 	_path_index += 1
 	
 	_movement.move_to_cell(_path[_path_index])
+	
+	await _movement.move_finished
+	
+	if _movement.current_cell == TrapPhase.current.player.movement.current_cell:
+		TrapPhase.current.player.kill()
