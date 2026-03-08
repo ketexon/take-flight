@@ -46,11 +46,8 @@ func _input(event) -> void:
 			if disjoint_trigger_object and disjoint_trigger_representation:
 				var sell_plate_instance = disjoint_trigger_representation.instantiate()
 				sell_trap_instance.disjoint_trigger_to_spawn = disjoint_trigger_object
-				
-				
-			
+		
 			tree_root.add_child(sell_trap_instance)
-			
 			
 			var viewport_center = get_viewport_rect().size / 2
 			sell_trap_instance.position = viewport_center
