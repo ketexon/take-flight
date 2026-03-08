@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://207a1yspi4k5"]
 
 [ext_resource type="PackedScene" uid="uid://y3xp63ipvopj" path="res://trap_phase/enemy/trap_phase_enemy_base.tscn" id="1_mdqgx"]
+[ext_resource type="Texture2D" uid="uid://djwbom5rr6rrb" path="res://assets/enemy pieces/rook_sm.png" id="2_jx872"]
 
 [node name="Rook" unique_id=15996663 instance=ExtResource("1_mdqgx")]
+
+[node name="Sprite2D" parent="." index="2" unique_id=837207103]
+position = Vector2(0, -60)
+texture = ExtResource("2_jx872")

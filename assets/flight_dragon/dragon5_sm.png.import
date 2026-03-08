@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buftuhwo4j4gf"
-path="res://.godot/imported/chessboard.png-94cadedfeec50403643cda390fcd0cfa.ctex"
+uid="uid://cmbsei8i7imju"
+path="res://.godot/imported/dragon5_sm.png-d986d955d108fc1fe46fa3d7da5cb69a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://trap_phase/chessboard.png"
-dest_files=["res://.godot/imported/chessboard.png-94cadedfeec50403643cda390fcd0cfa.ctex"]
+source_file="res://assets/flight_dragon/dragon5_sm.png"
+dest_files=["res://.godot/imported/dragon5_sm.png-d986d955d108fc1fe46fa3d7da5cb69a.ctex"]
 
 [params]
 

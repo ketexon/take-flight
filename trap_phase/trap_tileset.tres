@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://6pei2cjoyrrv"]
 
 [ext_resource type="Texture2D" uid="uid://drgqys0hjrcn4" path="res://trap_phase/colored_tilemap_packed.png" id="1_g20xs"]
+[ext_resource type="PackedScene" uid="uid://sj77u8ndj5pk" path="res://trap_phase/obstalce.tscn" id="2_q7hev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vi31b"]
 texture = ExtResource("1_g20xs")
@@ -166,6 +167,10 @@ texture_region_size = Vector2i(8, 8)
 14:9/0 = 0
 15:9/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_lounx"]
+scenes/1/scene = ExtResource("2_q7hev")
+
 [resource]
-tile_size = Vector2i(8, 8)
+tile_size = Vector2i(144, 144)
 sources/0 = SubResource("TileSetAtlasSource_vi31b")
+sources/1 = SubResource("TileSetScenesCollectionSource_lounx")
