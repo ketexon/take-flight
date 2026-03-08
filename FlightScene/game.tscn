@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://q8vieft7384c" path="res://FlightScene/DuckProjectile.tscn" id="7_nr61c"]
 [ext_resource type="PackedScene" uid="uid://b5wew8nks50rt" path="res://FlightScene/ArrowProjectile.tscn" id="8_5sdl1"]
 [ext_resource type="PackedScene" uid="uid://bx20epsh1w765" path="res://FlightScene/WallProjectile.tscn" id="9_pdtmo"]
+[ext_resource type="PackedScene" uid="uid://cl0hgkdaptfgr" path="res://FlightScene/background.tscn" id="10_f4opw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_feb5d"]
 
@@ -19,7 +20,7 @@ position = Vector2(0, -320)
 
 [node name="Player" parent="." unique_id=2053148536 instance=ExtResource("3_feb5d")]
 z_index = 1
-position = Vector2(8, -496)
+position = Vector2(9, -495)
 
 [node name="ResourceSpawner" parent="." unique_id=1813083604 node_paths=PackedStringArray("labelNode") instance=ExtResource("2_feb5d")]
 position = Vector2(0, 8)
@@ -67,3 +68,6 @@ shape = SubResource("WorldBoundaryShape2D_feb5d")
 script = ExtResource("6_l7fs5")
 projectiles = Array[PackedScene]([ExtResource("7_nr61c"), ExtResource("8_5sdl1"), ExtResource("9_pdtmo")])
 player = NodePath("../Player")
+
+[node name="Background" parent="." unique_id=2049872727 instance=ExtResource("10_f4opw")]
+follow_viewport_enabled = true

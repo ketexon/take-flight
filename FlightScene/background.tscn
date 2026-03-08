@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cl0hgkdaptfgr"]
+
+[ext_resource type="Script" uid="uid://by8y4aopnx4ft" path="res://FlightScene/background.gd" id="1_1d6hp"]
+[ext_resource type="Texture2D" uid="uid://c0bv7bqf1a7vd" path="res://assets/flight_bgs/clouds.png" id="1_jlhgy"]
+[ext_resource type="Texture2D" uid="uid://bdvqeyyaqy7sx" path="res://assets/flight_bgs/backmtns.png" id="2_1d6hp"]
+[ext_resource type="Texture2D" uid="uid://csk5k8h8iy5rj" path="res://assets/flight_bgs/frontmtns.png" id="3_qmmi1"]
+
+[node name="Background" type="ParallaxBackground" unique_id=2049872727]
+script = ExtResource("1_1d6hp")
+
+[node name="BackLayer" type="Parallax2D" parent="." unique_id=1459055092]
+scroll_offset = Vector2(3, 0)
+repeat_size = Vector2(2000, 0)
+autoscroll = Vector2(-20, 0)
+repeat_times = 3
+
+[node name="CloudSprite" type="Sprite2D" parent="BackLayer" unique_id=881378237]
+position = Vector2(50, -369)
+scale = Vector2(0.25531688, 0.24865812)
+texture = ExtResource("1_jlhgy")
+
+[node name="MidLayer" type="Parallax2D" parent="." unique_id=813052752]
+scroll_offset = Vector2(-936, -72)
+repeat_size = Vector2(1490, 0)
+autoscroll = Vector2(-30, 0)
+
+[node name="BackMtnSprite" type="Sprite2D" parent="MidLayer" unique_id=1180794093]
+position = Vector2(697, -112)
+scale = Vector2(0.20035437, 0.25722036)
+texture = ExtResource("2_1d6hp")
+
+[node name="FrontLayer" type="Parallax2D" parent="." unique_id=1969274641]
+scroll_offset = Vector2(-936, 29)
+repeat_size = Vector2(1468, 0)
+autoscroll = Vector2(-40, 0)
+
+[node name="FrontMtnSprite" type="Sprite2D" parent="FrontLayer" unique_id=1937246387]
+position = Vector2(693.00006, -125)
+scale = Vector2(0.35848477, 0.2629594)
+texture = ExtResource("3_qmmi1")
