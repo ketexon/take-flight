@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed : float = 300.0
+signal dead
 
 func _physics_process(_delta):
 	# Get input vector (left, right, up, down)
@@ -15,3 +16,4 @@ func _physics_process(_delta):
 
 func die():
 	print("holy shit he dead asf fr")
+	dead.emit()

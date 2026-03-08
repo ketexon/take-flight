@@ -8,3 +8,8 @@ func _on_resource_pickup() -> void:
 	score += 1
 	print(score)
 	label.text = "Resources: %s" % score
+
+
+func _on_player_dead() -> void:
+	global.resources = score
+	global.score += score

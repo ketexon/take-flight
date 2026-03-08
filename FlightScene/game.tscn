@@ -71,3 +71,5 @@ player = NodePath("../Player")
 
 [node name="Background" parent="." unique_id=2049872727 instance=ExtResource("10_f4opw")]
 follow_viewport_enabled = true
+
+[connection signal="dead" from="Player" to="ScoreLabel" method="_on_player_dead"]

@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-DragAndDrop="*uid://bokqnd3vt8v38"
 PhantomCameraManager="*uid://duq6jhf6unyis"
+DragAndDrop="*uid://bokqnd3vt8v38"
+global="*uid://3sswm3msj38t"
 
 [display]
 
