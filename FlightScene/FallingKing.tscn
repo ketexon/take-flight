@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bri614o6mtppo"]
+
+[ext_resource type="Texture2D" uid="uid://dbhpoa3wtbqbp" path="res://assets/fallingking.png" id="1_hutge"]
+[ext_resource type="Script" uid="uid://cbqfl3n7fple0" path="res://FlightScene/falling_king.gd" id="1_u431w"]
+
+[node name="FallingKing" type="Node2D" unique_id=1229536237]
+script = ExtResource("1_u431w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=978206612]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_hutge")

@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://5hq5ionyvi46" path="res://assets/flight_dragon/dragon4.png" id="4_1xoks"]
 [ext_resource type="Texture2D" uid="uid://47atwf24mcg0" path="res://assets/flight_dragon/dragon5.png" id="5_32ojg"]
 [ext_resource type="Texture2D" uid="uid://bq2cp5nkb5u5s" path="res://assets/flight_dragon/dragon6.png" id="6_8w3vr"]
+[ext_resource type="Texture2D" uid="uid://nr2egtsowmld" path="res://assets/emptyflyingdragon/emptydrag1.png" id="7_vcu53"]
+[ext_resource type="Texture2D" uid="uid://cbf81rqlpnmeq" path="res://assets/emptyflyingdragon/emptydrag2.png" id="8_wpvsp"]
+[ext_resource type="Texture2D" uid="uid://d0jyxjqkfgkar" path="res://assets/emptyflyingdragon/emptydrag3.png" id="9_17ol0"]
+[ext_resource type="Texture2D" uid="uid://cl0mxmsqg6i8" path="res://assets/emptyflyingdragon/emptydrag4.png" id="10_w7lv2"]
+[ext_resource type="Texture2D" uid="uid://tdp82ujvd2kv" path="res://assets/emptyflyingdragon/emptydrag5.png" id="11_s5pma"]
+[ext_resource type="Texture2D" uid="uid://b0yb57ovpg8d8" path="res://assets/emptyflyingdragon/emptydrag6.png" id="12_0dymj"]
 
 [resource]
 animations = [{
@@ -30,5 +36,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vcu53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wpvsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_17ol0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w7lv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_s5pma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0dymj")
+}],
+"loop": true,
+"name": &"empy",
 "speed": 5.0
 }]

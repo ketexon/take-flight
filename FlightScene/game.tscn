@@ -28,10 +28,10 @@ item_to_spawn = ExtResource("1_80nbo")
 labelNode = NodePath("../ScoreLabel")
 
 [node name="ScoreLabel" parent="." unique_id=978232497 instance=ExtResource("4_fc0e3")]
-offset_left = -568.0
-offset_top = -640.0
-offset_right = -568.0
-offset_bottom = -640.0
+offset_left = -647.0
+offset_top = -679.0
+offset_right = -647.0
+offset_bottom = -679.0
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=505087014 node_paths=PackedStringArray("camera")]
 script = ExtResource("5_702ma")
