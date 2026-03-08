@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sjh7ecxholp"
-path="res://.godot/imported/moving_king_sm.png-d4aa572ae1b7dbe08e70fde4bddba55c.ctex"
+uid="uid://bsi53vl7cf1qe"
+path="res://.godot/imported/chessboard_sm.png-ae1f724d558106f6c5e165b7fddcfb8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/king pieces/moving_king_sm.png"
-dest_files=["res://.godot/imported/moving_king_sm.png-d4aa572ae1b7dbe08e70fde4bddba55c.ctex"]
+source_file="res://assets/chessboard_sm.png"
+dest_files=["res://.godot/imported/chessboard_sm.png-ae1f724d558106f6c5e165b7fddcfb8d.ctex"]
 
 [params]
 

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c2nryq7ttkmi4" path="res://trap_phase/trap_phase_character_base.tscn" id="1_j0g0e"]
 [ext_resource type="Script" uid="uid://dmp0cpyrojm35" path="res://trap_phase/player/trap_phase_player.gd" id="2_w8fnf"]
 [ext_resource type="Script" uid="uid://tvx6utp04qr4" path="res://trap_phase/player/trap_phase_player_controller.gd" id="3_m4qbx"]
+[ext_resource type="Texture2D" uid="uid://bnqxr84m5frla" path="res://assets/king pieces/moving king_sm.png" id="3_whxbp"]
 
 [node name="TrapPhasePlayer" unique_id=15996663 node_paths=PackedStringArray("controller", "movement") instance=ExtResource("1_j0g0e")]
 script = ExtResource("2_w8fnf")
@@ -11,6 +12,10 @@ movement = NodePath("TrapPhaseCharacterMovement")
 
 [node name="TrapPhaseCharacterMovement" parent="." index="0" unique_id=1853261989 node_paths=PackedStringArray("_character")]
 _character = NodePath("..")
+
+[node name="Sprite2D" parent="." index="2" unique_id=837207103]
+position = Vector2(0, -49)
+texture = ExtResource("3_whxbp")
 
 [node name="TrapPhasePlayerController" type="Node" parent="." index="3" unique_id=443861876 node_paths=PackedStringArray("_movement")]
 script = ExtResource("3_m4qbx")
