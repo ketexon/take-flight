@@ -22,7 +22,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if is_dragging:
 		global_position = get_global_mouse_position() - texture_rect.size / 2
-		global_position = global_position.snapped(TILE_SIZE)
+		var cell = TrapPhase.current.grid.get_cell_at_point(global_position)
+		global_position = global_position.snapped(TrapPhase.current.grid.get_cell_center(cell)) 
 		
 
 func _spawn_trap():
