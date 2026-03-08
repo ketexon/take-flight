@@ -53,7 +53,7 @@ metadata/_custom_type_script = "uid://dncw2icq2lxfx"
 [node name="TrapPhaseStatePrepration" type="Node" parent="StateMachine" unique_id=1661451994 node_paths=PackedStringArray("_finish_button", "_shop_interface")]
 script = ExtResource("13_4isxw")
 _finish_button = NodePath("../../CanvasLayer/Button")
-_shop_interface = NodePath("../../ShopScene")
+_shop_interface = NodePath("../../YSort/ShopScene")
 metadata/_custom_type_script = "uid://cb0e7twca0jbx"
 
 [node name="TrapPhaseStateWave" type="Node" parent="StateMachine" unique_id=516388083]
@@ -157,9 +157,9 @@ position = Vector2(930, 220)
 [node name="arrow_shooter" parent="YSort" unique_id=1522509257 instance=ExtResource("19_1vh1o")]
 position = Vector2(797, 1082)
 
-[node name="ShopScene" parent="." unique_id=1901123927 node_paths=PackedStringArray("_finish_button") instance=ExtResource("25_45ci6")]
+[node name="ShopScene" parent="YSort" unique_id=1901123927 node_paths=PackedStringArray("_finish_button") instance=ExtResource("25_45ci6")]
 offset_left = -762.0
 offset_top = 105.0
 offset_right = -762.0
 offset_bottom = 105.0
-_finish_button = NodePath("../CanvasLayer/Button")
+_finish_button = NodePath("../../CanvasLayer/Button")

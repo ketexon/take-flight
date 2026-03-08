@@ -8,14 +8,12 @@ extends Control
 ##The trap which will be spawned once the state_controller's scene transitions
 ##to spawning enemies
 @export var trap_to_spawn : Resource
-##The scene which will be spawned and linked to the trap_to_spawn 
-@export var disjoint_trigger_to_spawn :Resource
-##The movable representation of the object which will trigger the trap
-@export var trigger_representation :Resource
 ##This will be refunded to the player if the icon is deleted
 @export var cost:int #filled when trap is spawned by UI
 ##Will have its signal listened for before registering the traps 
 @export var _finish_button:BaseButton
+
+signal trap_spawned(trap:Node)
 
 var is_dragging :bool
 
@@ -28,17 +26,13 @@ func _ready() -> void:
 
 
 func _spawn_trap():
-	print("Spawning a trap and plate")
+	print("Spawning a disjoint trap")
 	var trap = trap_to_spawn.instantiate()
-	var plate = disjoint_trigger_to_spawn.instantiate()
-	trap.position = Vector2(self.position)
+	trap.position = Vector2(self.global_position)
 	
-	plate.action = trap
-	plate.position = Vector2(self.global_position)
-	get_parent().add_child(trap)
-	get_parent().add_child(plate)
-
-	self.queue_free.call_deferred()	
+	get_parent().get_parent().add_child(trap)
+	print("Trap spawned. Emitting a signal for %s" % trap)
+	emit_signal("trap_spawned", trap)
 
 
 func _process(_delta: float) -> void:
@@ -56,6 +50,6 @@ func _on_texture_rect_gui_input(event: InputEvent) -> void:
 			is_dragging = false
 	
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
-		emit_signal("trap_sold", [cost])
-		print("Refunded %d gold" %cost)
+		emit_signal("trap_sold", cost)
+		print("Refunded %d gold" % cost)
 		self.get_parent().queue_free.call_deferred()

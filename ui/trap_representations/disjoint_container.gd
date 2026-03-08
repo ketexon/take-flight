@@ -18,6 +18,8 @@ extends Control
 
 const TILE_SIZE = Vector2(64, 64)
 
+var trap_object = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	draggable_trap.texture = texture
@@ -33,6 +35,14 @@ func _ready() -> void:
 	draggable_trigger._finish_button.pressed.connect(draggable_trigger._spawn_trap)
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_disjoint_trigger_representation_trigger_spawned(plate: Node) -> void:
+	while (not trap_object):
+		print("awaiting trap creation")
+		
+	print("Assigned trap %s to plate %s" % [trap_object, plate])
+	plate.action = trap_object
+	self.queue_free.call_deferred()
+
+
+func _on_disjoint_trap_representation_trap_spawned(trap: Node) -> void:
+	self.trap_object = trap
