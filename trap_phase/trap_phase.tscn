@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dsnnw8ipqrssb"]
+[gd_scene format=3 uid="uid://dsnnw8ipqrssb"]
 
 [ext_resource type="Script" uid="uid://cot3x8uqj1igv" path="res://trap_phase/trap_phase.gd" id="1_cex60"]
 [ext_resource type="Script" uid="uid://dcm1ujh0kn5n0" path="res://trap_phase/trap_phase_grid.gd" id="1_etsdt"]
@@ -34,6 +34,17 @@ grid = NodePath("TrapPhaseGrid")
 target_cell = Vector2i(1, 6)
 enemy_spawner = NodePath("TrapPhaseEnemySpawner")
 player = NodePath("YSort/Player")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=661033191]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=509492842]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="StateMachine" type="Node" parent="." unique_id=585136313]
 script = ExtResource("12_8732a")
@@ -97,13 +108,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SceneTransition" parent="CanvasLayer" unique_id=1967025034 node_paths=PackedStringArray("_follow") instance=ExtResource("14_esqvv")]
 _follow = NodePath("../../YSort/Player")
+metadata/_edit_use_anchors_ = true
 
 [node name="YSort" type="Node2D" parent="." unique_id=816305819]
 y_sort_enabled = true
 
 [node name="Obstacles" type="TileMapLayer" parent="YSort" unique_id=1065826115 groups=["navmesh"]]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAFAAQAAAABAAEAAAAFAAYAAAABAAEAAAAAAAUAAQAAAAAAAQABAAUAAQAAAAAAAQACAAUAAQAAAAAAAQACAAYAAQAAAAAAAQA=")
+tile_map_data = PackedByteArray(0, 0, 0, 0, 5, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 5, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0, 6, 0, 1, 0, 0, 0, 0, 0, 1, 0)
 tile_set = ExtResource("1_whep6")
 
 [node name="Camera2D" type="Camera2D" parent="YSort" unique_id=1040005490]

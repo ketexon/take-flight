@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dkbf5wt5x1pxc"]
+
+[ext_resource type="Texture2D" uid="uid://xhfhq63hfd1q" path="res://ui/kenny_fantasy_ui_borders/Border/panel-border-024.png" id="1_1wvjf"]
+
+[resource]
+texture = ExtResource("1_1wvjf")
+texture_margin_left = 17.0
+texture_margin_top = 17.0
+texture_margin_right = 17.0
+texture_margin_bottom = 16.0

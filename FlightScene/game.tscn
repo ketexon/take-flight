@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://q8vieft7384c" path="res://FlightScene/DuckProjectile.tscn" id="7_nr61c"]
 [ext_resource type="PackedScene" uid="uid://b5wew8nks50rt" path="res://FlightScene/ArrowProjectile.tscn" id="8_5sdl1"]
 [ext_resource type="PackedScene" uid="uid://bx20epsh1w765" path="res://FlightScene/WallProjectile.tscn" id="9_pdtmo"]
-[ext_resource type="PackedScene" uid="uid://cl0hgkdaptfgr" path="res://FlightScene/background.tscn" id="10_f4opw"]
+[ext_resource type="PackedScene" path="res://FlightScene/background.tscn" id="10_f4opw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_feb5d"]
 

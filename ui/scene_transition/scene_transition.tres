@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c42gysuxm2mps"]
+
+[ext_resource type="Shader" uid="uid://syy6sl044oc3" path="res://ui/scene_transition/circle_scene_transition.gdshader" id="1_xt7dm"]
+
+[resource]
+shader = ExtResource("1_xt7dm")
+shader_parameter/center_px = Vector2(0, 0)
+shader_parameter/radius_percent = 1.0

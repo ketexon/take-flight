@@ -65,3 +65,7 @@ func _process(_delta: float) -> void:
 	if _follow:
 		var xform := get_viewport().canvas_transform
 		center = xform * _follow.global_position
+
+
+func set_center_percent(percent: Vector2) -> void:
+	center = get_viewport_rect().size * percent

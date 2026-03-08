@@ -3,13 +3,6 @@
 [ext_resource type="Script" uid="uid://d2tbs1sq5t6sx" path="res://ui/modal/modal.gd" id="1_13rqj"]
 [ext_resource type="Script" uid="uid://c3fic2m66kt7j" path="res://ui/modal/modal_wiggle.gd" id="2_23dug"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvf5e"]
-content_margin_left = 64.0
-content_margin_top = 64.0
-content_margin_right = 64.0
-content_margin_bottom = 64.0
-bg_color = Color(0, 0, 0, 1)
-
 [node name="Modal" type="Control" unique_id=111782720 node_paths=PackedStringArray("_heading_label", "_description_label")]
 visible = false
 layout_mode = 3
@@ -46,15 +39,16 @@ offset_right = 300.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yvf5e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Wiggle/Panel" unique_id=266636875]
 layout_mode = 2
 theme_override_constants/separation = 16
+alignment = 1
 
 [node name="Heading" type="Label" parent="Wiggle/Panel/VBoxContainer" unique_id=773962454]
 layout_mode = 2
 theme_type_variation = &"Heading1Label"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Heading"
 horizontal_alignment = 1
 
@@ -62,6 +56,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 theme_type_variation = &"Subtitle1Label"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "This is body text. It can be multiple line, which means it can wrap a lot, which I am trying to test here. Ah yes, it seems like it is working! that is great. Good job me!"
 horizontal_alignment = 1
 autowrap_mode = 2
