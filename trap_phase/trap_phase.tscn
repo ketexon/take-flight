@@ -1,0 +1,146 @@
+[gd_scene format=4 uid="uid://dsnnw8ipqrssb"]
+
+[ext_resource type="Script" uid="uid://cot3x8uqj1igv" path="res://trap_phase/trap_phase.gd" id="1_cex60"]
+[ext_resource type="Script" uid="uid://dcm1ujh0kn5n0" path="res://trap_phase/trap_phase_grid.gd" id="1_etsdt"]
+[ext_resource type="TileSet" uid="uid://6pei2cjoyrrv" path="res://trap_phase/trap_tileset.tres" id="1_whep6"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_hxx32"]
+[ext_resource type="Script" uid="uid://dncw2icq2lxfx" path="res://trap_phase/states/trap_phase_state_intro.gd" id="3_1vh1o"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_ktvvt"]
+[ext_resource type="Script" uid="uid://64lvvvhhok8" path="res://trap_phase/trap_phase_enemy_spawner.gd" id="3_ptvs6"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6i4uy"]
+[ext_resource type="Resource" uid="uid://tpbvns16wgcu" path="res://trap_phase/enemy/enemy_database.tres" id="4_ckmea"]
+[ext_resource type="Script" uid="uid://dykgoyce17pbo" path="res://trap_phase/states/trap_phase_state_wave.gd" id="4_cqdfb"]
+[ext_resource type="Script" uid="uid://i8vbxgrqgym7" path="res://trap_phase/trap_camera_resizer.gd" id="5_6i4uy"]
+[ext_resource type="Script" uid="uid://tx0qt5dqxy5g" path="res://trap_phase/states/trap_phase_state_flee.gd" id="5_dgycb"]
+[ext_resource type="PackedScene" uid="uid://15mvv00e3tot" path="res://trap_phase/player/trap_phase_player.tscn" id="6_yvf5e"]
+[ext_resource type="Texture2D" uid="uid://bikbtpds3qiip" path="res://assets/chessboard2.png" id="10_evp1g"]
+[ext_resource type="PackedScene" uid="uid://bqq8pq3a15sgk" path="res://trap_phase/trap/spikes/spikes.tscn" id="11_1vh1o"]
+[ext_resource type="PackedScene" uid="uid://cy7dui373yb50" path="res://trap_phase/enemy_queue_ui/enemy_queue_ui.tscn" id="11_pp0gd"]
+[ext_resource type="Script" uid="uid://buvum03pmdrnm" path="res://state_machine/state_machine.gd" id="12_8732a"]
+[ext_resource type="Script" uid="uid://cb0e7twca0jbx" path="res://trap_phase/states/trap_phase_state_preparation.gd" id="13_4isxw"]
+[ext_resource type="PackedScene" uid="uid://c5eickyjuxvkx" path="res://ui/modal/modal.tscn" id="16_hym81"]
+[ext_resource type="Script" uid="uid://bo2quqtv083ll" path="res://trap_phase/trap_phase_door.gd" id="17_dafls"]
+[ext_resource type="PackedScene" uid="uid://c53nor341ld54" path="res://trap_phase/trap/arrow/arrow_shooter.tscn" id="19_1vh1o"]
+[ext_resource type="PackedScene" uid="uid://p0msl8qocisn" path="res://trap_phase/trap/pressure_plate/pressure_plate.tscn" id="21_evp1g"]
+
+[sub_resource type="Resource" id="Resource_irb3f"]
+script = ExtResource("4_6i4uy")
+
+[node name="TrapPhase" type="Node2D" unique_id=236315749 node_paths=PackedStringArray("grid", "enemy_spawner", "player")]
+script = ExtResource("1_cex60")
+grid = NodePath("TrapPhaseGrid")
+target_cell = Vector2i(1, 6)
+enemy_spawner = NodePath("TrapPhaseEnemySpawner")
+player = NodePath("YSort/Player")
+
+[node name="StateMachine" type="Node" parent="." unique_id=585136313]
+script = ExtResource("12_8732a")
+metadata/_custom_type_script = "uid://buvum03pmdrnm"
+
+[node name="TrapPhaseStateIntroDelay" type="Node" parent="StateMachine" unique_id=466230522]
+script = ExtResource("3_1vh1o")
+_delay = 0.2
+metadata/_custom_type_script = "uid://dncw2icq2lxfx"
+
+[node name="TrapPhaseStatePrepration" type="Node" parent="StateMachine" unique_id=1661451994 node_paths=PackedStringArray("_finish_button")]
+script = ExtResource("13_4isxw")
+_finish_button = NodePath("../../YSort/CanvasLayer/Button")
+metadata/_custom_type_script = "uid://cb0e7twca0jbx"
+
+[node name="TrapPhaseStateWave" type="Node" parent="StateMachine" unique_id=516388083]
+script = ExtResource("4_cqdfb")
+metadata/_custom_type_script = "uid://dykgoyce17pbo"
+
+[node name="TrapPhaseStateFlee" type="Node" parent="StateMachine" unique_id=1083156010]
+script = ExtResource("5_dgycb")
+metadata/_custom_type_script = "uid://tx0qt5dqxy5g"
+
+[node name="TrapPhaseGrid" type="Node" parent="." unique_id=1785896232 node_paths=PackedStringArray("_obstacle_tilemap_layer")]
+script = ExtResource("1_etsdt")
+_obstacle_tilemap_layer = NodePath("../YSort/Obstacles")
+_grid_size = Vector2i(8, 8)
+metadata/_custom_type_script = "uid://dcm1ujh0kn5n0"
+
+[node name="TrapPhaseEnemySpawner" type="Node" parent="." unique_id=393811523 node_paths=PackedStringArray("_enemy_container", "_spawn_timer")]
+script = ExtResource("3_ptvs6")
+_enemy_database = ExtResource("4_ckmea")
+_enemy_container = NodePath("../YSort/EnemyContainer")
+_spawn_timer = NodePath("SpawnTimer")
+metadata/_custom_type_script = "uid://64lvvvhhok8"
+
+[node name="SpawnTimer" type="Timer" parent="TrapPhaseEnemySpawner" unique_id=1703640339]
+wait_time = 0.7
+
+[node name="chessboard" type="Sprite2D" parent="." unique_id=1241982533]
+position = Vector2(559, 576)
+texture = ExtResource("10_evp1g")
+
+[node name="TrapsRoot" type="Node2D" parent="." unique_id=690409109]
+
+[node name="YSort" type="Node2D" parent="." unique_id=816305819]
+y_sort_enabled = true
+
+[node name="Obstacles" type="TileMapLayer" parent="YSort" unique_id=1065826115 groups=["navmesh"]]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAFAAQAAAABAAEAAAAFAAYAAAABAAEAAAAAAAUAAQAAAAAAAQABAAUAAQAAAAAAAQACAAUAAQAAAAAAAQACAAYAAQAAAAAAAQA=")
+tile_set = ExtResource("1_whep6")
+
+[node name="Camera2D" type="Camera2D" parent="YSort" unique_id=1040005490]
+top_level = true
+position = Vector2(576, 576)
+
+[node name="PhantomCameraHost" type="Node" parent="YSort/Camera2D" unique_id=1997855261]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_hxx32")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="YSort" unique_id=238238776]
+position = Vector2(576, 576)
+script = ExtResource("3_ktvvt")
+tween_resource = SubResource("Resource_irb3f")
+tween_on_load = false
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="TrapCameraResizer" type="Node" parent="YSort/PhantomCamera2D" unique_id=760537035 node_paths=PackedStringArray("_phantom_camera")]
+script = ExtResource("5_6i4uy")
+_target_size = Vector2(1728, 1728)
+_phantom_camera = NodePath("..")
+metadata/_custom_type_script = "uid://i8vbxgrqgym7"
+
+[node name="Door" type="Node2D" parent="YSort" unique_id=2141889634]
+position = Vector2(938, 4)
+script = ExtResource("17_dafls")
+exit_dir = Vector2i(0, -1)
+
+[node name="EnemyContainer" type="Node2D" parent="YSort" unique_id=573658400]
+y_sort_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="YSort" unique_id=1865336342]
+
+[node name="Modal" parent="YSort/CanvasLayer" unique_id=111782720 instance=ExtResource("16_hym81")]
+
+[node name="EnemyQueueUI" parent="YSort/CanvasLayer" unique_id=1106208022 instance=ExtResource("11_pp0gd")]
+offset_left = 0.0
+offset_right = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="YSort/CanvasLayer" unique_id=282246219]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "start spawning enemies <3"
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="YSort" unique_id=15996663 instance=ExtResource("6_yvf5e")]
+position = Vector2(72, 1080)
+metadata/_custom_type_script = "uid://chxd54cxdykwv"
+
+[node name="spikes" parent="YSort" unique_id=1174415495 instance=ExtResource("11_1vh1o")]
+position = Vector2(504, 648)
+
+[node name="pressure_plate" parent="YSort" unique_id=868492361 node_paths=PackedStringArray("action") instance=ExtResource("21_evp1g")]
+position = Vector2(794, 214)
+action = NodePath("../arrow_shooter")
+
+[node name="arrow_shooter" parent="YSort" unique_id=1522509257 instance=ExtResource("19_1vh1o")]
+position = Vector2(799, 1087)

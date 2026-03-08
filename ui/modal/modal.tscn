@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://c5eickyjuxvkx"]
+
+[ext_resource type="Script" uid="uid://d2tbs1sq5t6sx" path="res://ui/modal/modal.gd" id="1_13rqj"]
+[ext_resource type="Script" uid="uid://c3fic2m66kt7j" path="res://ui/modal/modal_wiggle.gd" id="2_23dug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvf5e"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Modal" type="Control" unique_id=111782720 node_paths=PackedStringArray("_heading_label", "_description_label")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_13rqj")
+_heading_label = NodePath("Wiggle/Panel/VBoxContainer/Heading")
+_description_label = NodePath("Wiggle/Panel/VBoxContainer/Description")
+
+[node name="Wiggle" type="Control" parent="." unique_id=1255161185]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_23dug")
+
+[node name="Panel" type="PanelContainer" parent="Wiggle" unique_id=1981792571]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvf5e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Wiggle/Panel" unique_id=266636875]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Heading" type="Label" parent="Wiggle/Panel/VBoxContainer" unique_id=773962454]
+layout_mode = 2
+theme_type_variation = &"Heading1Label"
+text = "Heading"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Wiggle/Panel/VBoxContainer" unique_id=1020031722]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_type_variation = &"Subtitle1Label"
+text = "This is body text. It can be multiple line, which means it can wrap a lot, which I am trying to test here. Ah yes, it seems like it is working! that is great. Good job me!"
+horizontal_alignment = 1
+autowrap_mode = 2

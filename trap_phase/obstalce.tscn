@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://sj77u8ndj5pk"]
+
+[ext_resource type="Texture2D" uid="uid://bnlyn11t3yjr4" path="res://assets/pillar_sm.png" id="1_fjafe"]
+
+[node name="Obstalce" type="Node2D" unique_id=641842942]
+
+[node name="Pillar" type="Sprite2D" parent="." unique_id=399642370]
+y_sort_enabled = true
+position = Vector2(0, -83.99999)
+texture = ExtResource("1_fjafe")

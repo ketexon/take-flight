@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://2bnc6dii6tav"]
+
+[ext_resource type="Script" uid="uid://qdq6wpsd2byq" path="res://trap_phase/enemy_queue_ui/trap_phase_enemy_queue_ui_icon.gd" id="1_dcbjp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckmea"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.7607843, 0.7607843, 0.7607843, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.627451, 0.627451, 0.627451, 1)
+corner_detail = 1
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dcbjp"]
+size = Vector2(12, 24)
+
+[node name="QueueIcon" type="PanelContainer" unique_id=483930001 node_paths=PackedStringArray("_texture_rect")]
+custom_minimum_size = Vector2(32, 32)
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ckmea")
+script = ExtResource("1_dcbjp")
+_texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=332280539]
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_dcbjp")
+expand_mode = 1
+stretch_mode = 5

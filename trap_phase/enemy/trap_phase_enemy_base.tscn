@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://y3xp63ipvopj"]
+
+[ext_resource type="PackedScene" uid="uid://c2nryq7ttkmi4" path="res://trap_phase/trap_phase_character_base.tscn" id="1_u2g20"]
+[ext_resource type="Script" uid="uid://bmd1mgo57hnhd" path="res://trap_phase/enemy/trap_phase_enemy.gd" id="2_gbygh"]
+[ext_resource type="Script" uid="uid://bxuis2rskf8hy" path="res://trap_phase/enemy/trap_phase_enemy_navigation.gd" id="3_m7a2p"]
+
+[node name="TrapPhaseEnemyBase" unique_id=15996663 node_paths=PackedStringArray("navigation", "movement") instance=ExtResource("1_u2g20")]
+script = ExtResource("2_gbygh")
+navigation = NodePath("TrapPhaseEnemyNavigation")
+movement = NodePath("TrapPhaseCharacterMovement")
+
+[node name="TrapPhaseCharacterMovement" parent="." index="0" unique_id=1853261989 node_paths=PackedStringArray("_character")]
+_character = NodePath("..")
+
+[node name="TrapPhaseEnemyNavigation" type="Node" parent="." index="3" unique_id=1306655909 node_paths=PackedStringArray("_move_timer", "_movement")]
+script = ExtResource("3_m7a2p")
+_move_timer = NodePath("Timer")
+_movement = NodePath("../TrapPhaseCharacterMovement")
+metadata/_custom_type_script = "uid://bxuis2rskf8hy"
+
+[node name="Timer" type="Timer" parent="TrapPhaseEnemyNavigation" index="0" unique_id=1938690559]
+wait_time = 0.5

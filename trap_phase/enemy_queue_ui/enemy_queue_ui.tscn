@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cy7dui373yb50"]
+
+[ext_resource type="Script" uid="uid://bub3wde4jbuuu" path="res://trap_phase/enemy_queue_ui/trap_phase_enemy_queue_ui.gd" id="1_rjm3b"]
+[ext_resource type="PackedScene" uid="uid://2bnc6dii6tav" path="res://trap_phase/enemy_queue_ui/queue_icon.tscn" id="2_5ccya"]
+
+[node name="EnemyQueueUI" type="VBoxContainer" unique_id=1106208022 node_paths=PackedStringArray("_queue_icon_container")]
+anchors_preset = -1
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1093.0
+offset_right = -1093.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+script = ExtResource("1_rjm3b")
+_queue_icon_container = NodePath("VBoxContainer")
+_queue_icon_packed_scene = ExtResource("2_5ccya")
+
+[node name="Label" type="Label" parent="." unique_id=1850799157]
+layout_mode = 2
+theme_type_variation = &"Heading2Label"
+text = "Enemy Queue"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1038712062]
+layout_mode = 2
+theme_override_constants/separation = 4

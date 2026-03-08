@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c2nryq7ttkmi4"]
+
+[ext_resource type="Script" uid="uid://bk3l5nds2prp8" path="res://trap_phase/trap_phase_character_movement.gd" id="2_k3vob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2g20"]
+size = Vector2(8, 8)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u2g20"]
+size = Vector2(8, 8)
+
+[node name="TrapPhaseCharacterBase" type="Area2D" unique_id=1243105625]
+input_pickable = false
+
+[node name="TrapPhaseCharacterMovement" type="Node" parent="." unique_id=1853261989 node_paths=PackedStringArray("_character")]
+script = ExtResource("2_k3vob")
+_character = NodePath("")
+metadata/_custom_type_script = "uid://bk3l5nds2prp8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=698519423]
+shape = SubResource("RectangleShape2D_u2g20")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=837207103]
+texture = SubResource("PlaceholderTexture2D_u2g20")
