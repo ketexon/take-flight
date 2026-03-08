@@ -1,3 +1,4 @@
+class_name FlightPlayer
 extends CharacterBody2D
 
 @export var speed : float = 300.0
@@ -25,5 +26,6 @@ func die():
 		print("holy shit he dead asf fr")
 		var king = FALLING_SPRITE_SCENE.instantiate()
 		king.global_position = global_position
+		SceneTransition.instance.follow = king
 		get_tree().current_scene.add_child(king)
 		dead.emit()
