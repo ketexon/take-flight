@@ -5,15 +5,7 @@
 
 [node name="ShopScene" type="Control" unique_id=1901123927 node_paths=PackedStringArray("trap_container")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 4.0
-offset_right = 3.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_ip0xj")
 sell_trap = ExtResource("2_j7ar4")
@@ -21,29 +13,25 @@ trap_container = NodePath("ScrollContainer/TrapHolder")
 
 [node name="Background" type="ColorRect" parent="." unique_id=920309172]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 75.0
-offset_right = 242.0
-offset_bottom = 723.0
+offset_right = 216.0
+offset_bottom = 648.0
 mouse_filter = 2
 color = Color(0, 0.4, 0.5529412, 1)
 
 [node name="Label" type="Label" parent="." unique_id=721804564]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 76.0
-offset_right = 238.0
-offset_bottom = 130.0
+offset_right = 216.0
+offset_bottom = 54.0
 theme_override_font_sizes/font_size = 32
 text = "-      Shop      - "
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2005911633]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 142.0
-offset_right = 222.0
-offset_bottom = 711.0
+offset_left = 9.0
+offset_top = 60.0
+offset_right = 197.0
+offset_bottom = 629.0
 
 [node name="TrapHolder" type="VBoxContainer" parent="ScrollContainer" unique_id=151345871]
 layout_mode = 2
