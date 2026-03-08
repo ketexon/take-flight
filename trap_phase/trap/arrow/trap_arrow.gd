@@ -22,4 +22,4 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	position += Vector2.RIGHT * delta * _speed
+	position += Vector2.UP * delta * _speed

@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://dmabjqoxlx20w" path="res://assets/traps/spikes_sm.png" id="2_gimd1"]
 [ext_resource type="Script" uid="uid://d0fj6s2ydmaux" path="res://trap_phase/trap/trap_action_kill.gd" id="2_oibn8"]
 
-[node name="spikes" type="Node2D" unique_id=1174415495 node_paths=PackedStringArray("_action")]
+[node name="spikes" type="Node2D" unique_id=1174415495 node_paths=PackedStringArray("action")]
 script = ExtResource("1_sgvoo")
-_action = NodePath("TrapActionKill")
+action = NodePath("TrapActionKill")
 _once = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732712619]
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_gimd1")
 
-[node name="TrapActionKill" type="Node" parent="." unique_id=1010458670]
+[node name="TrapActionKill" type="Node2D" parent="." unique_id=1709828202]
 script = ExtResource("2_oibn8")
 metadata/_custom_type_script = "uid://d0fj6s2ydmaux"

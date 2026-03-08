@@ -2,7 +2,7 @@ class_name TrapTrigger
 extends Node2D
 
 
-@export var _action: TrapAction
+@export var action: TrapAction
 @export var _once: bool = false
 
 
@@ -25,7 +25,7 @@ func trigger(character: TrapPhaseCharacter) -> void:
 		return
 	_already_triggered = true
 	
-	if _action == null:
+	if action == null:
 		push_warning("Trap trigger {0} has no action".format([self]))
 		return
-	_action.activate(character)
+	action.activate(character)

@@ -20,6 +20,8 @@
 [ext_resource type="Script" uid="uid://cb0e7twca0jbx" path="res://trap_phase/states/trap_phase_state_preparation.gd" id="13_4isxw"]
 [ext_resource type="PackedScene" uid="uid://c5eickyjuxvkx" path="res://ui/modal/modal.tscn" id="16_hym81"]
 [ext_resource type="Script" uid="uid://bo2quqtv083ll" path="res://trap_phase/trap_phase_door.gd" id="17_dafls"]
+[ext_resource type="PackedScene" uid="uid://c53nor341ld54" path="res://trap_phase/trap/arrow/arrow_shooter.tscn" id="19_1vh1o"]
+[ext_resource type="PackedScene" uid="uid://p0msl8qocisn" path="res://trap_phase/trap/pressure_plate/pressure_plate.tscn" id="21_evp1g"]
 
 [sub_resource type="Resource" id="Resource_irb3f"]
 script = ExtResource("4_6i4uy")
@@ -72,6 +74,8 @@ wait_time = 0.7
 [node name="chessboard" type="Sprite2D" parent="." unique_id=1241982533]
 position = Vector2(559, 576)
 texture = ExtResource("10_evp1g")
+
+[node name="TrapsRoot" type="Node2D" parent="." unique_id=690409109]
 
 [node name="YSort" type="Node2D" parent="." unique_id=816305819]
 y_sort_enabled = true
@@ -133,3 +137,10 @@ metadata/_custom_type_script = "uid://chxd54cxdykwv"
 
 [node name="spikes" parent="YSort" unique_id=1174415495 instance=ExtResource("11_1vh1o")]
 position = Vector2(504, 648)
+
+[node name="pressure_plate" parent="YSort" unique_id=868492361 node_paths=PackedStringArray("action") instance=ExtResource("21_evp1g")]
+position = Vector2(794, 214)
+action = NodePath("../arrow_shooter")
+
+[node name="arrow_shooter" parent="YSort" unique_id=1522509257 instance=ExtResource("19_1vh1o")]
+position = Vector2(799, 1087)
