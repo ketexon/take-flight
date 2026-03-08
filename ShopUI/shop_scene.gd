@@ -15,6 +15,10 @@ var arrow_shooter_scene = preload("res://trap_phase/trap/arrow/arrow_shooter.tsc
 var pressure_plate_scene = preload("res://trap_phase/trap/pressure_plate/pressure_plate.tscn")
 
 func _ready() -> void:
+	#for node in get_tree().get_root().get_children():
+		#for gc in node.get_children():
+			#print("%s has child %s" % [node.name, gc.name])
+	
 	self.visible = true
 	_finish_button.pressed.connect(_remove_shop)
 	
