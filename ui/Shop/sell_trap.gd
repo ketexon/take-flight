@@ -1,10 +1,9 @@
 extends Control
-class_name SellTrapUI
+class_name SellTrap
 
 @export var trap_frame: TextureRect
 @export var trap_type: PackedScene
 @export var cost: int
-
 var tree_root: Node
 var is_hovered:bool
 
@@ -25,7 +24,7 @@ func _input(event) -> void:
 			#if (player.money >= cost):
 			var sell_trap_instance = trap_type.instantiate()
 			tree_root.add_child(sell_trap_instance)
-			#sell_trap_instance.cost = cost
+			sell_trap_instance.cost = cost
 			var viewport_center = get_viewport_rect().size / 2
 			sell_trap_instance.position = viewport_center
 			emit_signal("trap_purchased", [cost])
@@ -33,9 +32,9 @@ func _input(event) -> void:
 
 func _process(_delta: float):
 	if (is_hovered):
-		trap_frame.scale = Vector2(1.5, 1.5)
+		trap_frame.scale = Vector2(1.2, 1.2)
 	else:
-		trap_frame.scale = Vector2(1.2, 1.2)		
+		trap_frame.scale = Vector2(1, 1)		
 
 
 func _on_trap_image_mouse_entered() -> void:

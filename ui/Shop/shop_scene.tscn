@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d3pha0p35darl"]
+
+[ext_resource type="Script" uid="uid://we2pm74x686c" path="res://ShopUI/shop_scene.gd" id="1_iaadt"]
+
+[node name="ShopScene" type="Control" unique_id=1901123927 node_paths=PackedStringArray("trap_container")]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_iaadt")
+trap_container = NodePath("ScrollContainer/TrapHolder")
+
+[node name="Background" type="ColorRect" parent="." unique_id=920309172]
+layout_mode = 0
+offset_right = 417.0
+offset_bottom = 862.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=721804564]
+layout_mode = 0
+offset_right = 417.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 32
+text = "-      Shop      - "
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2005911633]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 60.0
+offset_right = 395.0
+offset_bottom = 811.0
+
+[node name="TrapHolder" type="VBoxContainer" parent="ScrollContainer" unique_id=151345871]
+layout_mode = 2
