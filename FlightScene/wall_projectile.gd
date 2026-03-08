@@ -10,9 +10,9 @@ func _ready() -> void:
 	var right_edge_x = center.x + (v_size.x / 2.0) + 50
 	position.x=right_edge_x
 	if(randi()%2==1):
-		position.y= center.y + ((v_size.y / 2.0))  - 150
+		position.y= center.y + ((v_size.y / 2.0))  - 125
 	else:
-		position.y= center.y - ((v_size.y / 2.0) ) + 150
+		position.y= center.y - ((v_size.y / 2.0) ) + 125
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

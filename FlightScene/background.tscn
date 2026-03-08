@@ -25,7 +25,7 @@ repeat_size = Vector2(1490, 0)
 autoscroll = Vector2(-30, 0)
 
 [node name="BackMtnSprite" type="Sprite2D" parent="MidLayer" unique_id=1180794093]
-position = Vector2(697, -112)
+position = Vector2(692.00006, -37)
 scale = Vector2(0.20035437, 0.25722036)
 texture = ExtResource("2_1d6hp")
 
@@ -35,6 +35,6 @@ repeat_size = Vector2(1468, 0)
 autoscroll = Vector2(-40, 0)
 
 [node name="FrontMtnSprite" type="Sprite2D" parent="FrontLayer" unique_id=1937246387]
-position = Vector2(693.00006, -125)
+position = Vector2(698, -21)
 scale = Vector2(0.35848477, 0.2629594)
 texture = ExtResource("3_qmmi1")

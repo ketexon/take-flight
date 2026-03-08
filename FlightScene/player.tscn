@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://cr0wvy13wtjgs" path="res://FlightScene/player.gd" id="2_i3pqv"]
 [ext_resource type="SpriteFrames" uid="uid://ccs0ffecr17o4" path="res://FlightScene/dragon_sprite_frames.tres" id="3_65kuy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
-size = Vector2(236, 95)
-
 [node name="Player" type="CharacterBody2D" unique_id=2053148536]
 collision_layer = 3
 collision_mask = 3
@@ -16,6 +13,5 @@ scale = Vector2(0.4459888, 0.46063066)
 sprite_frames = ExtResource("3_65kuy")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415738766]
-position = Vector2(32, -13.5)
-shape = SubResource("RectangleShape2D_4flbx")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2058947759]
+polygon = PackedVector2Array(-82, 29, 51, 25, 92, 1, 147, -1, 149, -15, 111, -27, 79, -53, -62, -9, -141, -12, -141, 4)

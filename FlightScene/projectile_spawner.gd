@@ -11,7 +11,7 @@ extends Node2D
 func _ready() -> void:
 	#spawn timer and start it. 
 	timer = Timer.new()
-	timer.wait_time = 3.5
+	timer.wait_time = 4
 	add_child(timer)
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
