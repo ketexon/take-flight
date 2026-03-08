@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://by5of468uus7"]
+
+[ext_resource type="Script" uid="uid://b2jooa0cjksfe" path="res://ui/trap_representations/disjoint_trap_representation.gd" id="1_ku21c"]
+[ext_resource type="Texture2D" uid="uid://66nditpclr66" path="res://ShopUI/coin.png" id="2_h873o"]
+
+[node name="DisjointTrapRepresentation" type="Control" unique_id=1133230808 node_paths=PackedStringArray("texture_rect")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ku21c")
+texture_rect = NodePath("TextureRect")
+texture = ExtResource("2_h873o")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=581914899]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]

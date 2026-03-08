@@ -150,22 +150,10 @@ position = Vector2(72, 1080)
 metadata/_custom_type_script = "uid://chxd54cxdykwv"
 
 [node name="spikes" parent="YSort" unique_id=1174415495 instance=ExtResource("11_1vh1o")]
-offset_left = 504.0
-offset_top = 648.0
-offset_right = 504.0
-offset_bottom = 648.0
 
 [node name="pressure_plate" parent="YSort" unique_id=868492361 instance=ExtResource("21_evp1g")]
-offset_left = 794.0
-offset_top = 214.0
-offset_right = 794.0
-offset_bottom = 214.0
 
 [node name="arrow_shooter" parent="YSort" unique_id=1522509257 instance=ExtResource("19_1vh1o")]
-offset_left = 799.0
-offset_top = 1087.0
-offset_right = 799.0
-offset_bottom = 1087.0
 
 [node name="ShopScene" parent="." unique_id=1901123927 node_paths=PackedStringArray("_finish_button") instance=ExtResource("25_45ci6")]
 offset_left = -762.0

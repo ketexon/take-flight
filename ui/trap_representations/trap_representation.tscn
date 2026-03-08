@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c37rhrkcgthhf"]
+
+[ext_resource type="Script" uid="uid://clug8oxrvxiq3" path="res://ui/trap_representations/trap_representation.gd" id="1_ihib1"]
+[ext_resource type="Texture2D" uid="uid://doyx2qvxarm21" path="res://icon.svg" id="2_3bcjk"]
+
+[node name="TrapRepresentation" type="Control" unique_id=966169674 node_paths=PackedStringArray("texture_rect")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ihib1")
+texture_rect = NodePath("TextureRect")
+texture = ExtResource("2_3bcjk")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1169255306]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]

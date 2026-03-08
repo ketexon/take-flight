@@ -6,6 +6,10 @@ class_name ShopUI
 @export var _finish_button: BaseButton
 
 
+var representation = preload()
+var disjoint_representation = preload()
+
+
 var spikes_scene = preload("res://trap_phase/trap/spikes/spikes.tscn")
 var arrow_shooter_scene = preload("res://trap_phase/trap/arrow/arrow_shooter.tscn")
 var pressure_plate_scene = preload("res://trap_phase/trap/pressure_plate/pressure_plate.tscn")
@@ -29,7 +33,6 @@ func _ready() -> void:
 	
 	trap_container.add_child(spikes)
 	trap_container.add_child(arrow_shooter)
-	#trap_container.add_child(plate)
 	
 
 func _remove_shop():

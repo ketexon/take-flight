@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://d3pha0p35darl"]
 
 [ext_resource type="Script" uid="uid://we2pm74x686c" path="res://ShopUI/shop_scene.gd" id="1_iaadt"]
+[ext_resource type="PackedScene" uid="uid://d3mpa61voy8r2" path="res://ui/Shop/sell_trap.tscn" id="2_iaadt"]
 
 [node name="ShopScene" type="Control" unique_id=1901123927 node_paths=PackedStringArray("trap_container")]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_iaadt")
+sell_trap = ExtResource("2_iaadt")
 trap_container = NodePath("ScrollContainer/TrapHolder")
 
 [node name="Background" type="ColorRect" parent="." unique_id=920309172]
@@ -20,7 +22,7 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_right = 417.0
 offset_bottom = 54.0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 text = "-      Shop      - "
 horizontal_alignment = 1
 
