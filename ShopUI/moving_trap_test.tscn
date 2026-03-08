@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dlxod36h5b12p"]
+
+[ext_resource type="PackedScene" uid="uid://uum3ljigctit" path="res://ShopUI/moving_trap.tscn" id="1_k5gko"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k5gko"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ybdqx"]
+distance = -145.0
+
+[node name="Node2D" type="Node2D" unique_id=1181438822]
+
+[node name="TrapRoot" parent="." unique_id=1263226015 instance=ExtResource("1_k5gko")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1993375918 groups=["wall"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=232003491]
+position = Vector2(172, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_k5gko")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=420524121 groups=["wall"]]
+position = Vector2(-90, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=392817968]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_ybdqx")

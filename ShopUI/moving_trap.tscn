@@ -10,11 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://bsj5ft8mrpfyk" path="res://ShopUI/TestAnimation/run-7.png" id="8_xrutv"]
 [ext_resource type="Texture2D" uid="uid://chx7ax1ga2ty8" path="res://ShopUI/TestAnimation/run-8.png" id="9_w65n7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cje1j"]
-size = Vector2(138, 138)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2q8g"]
 size = Vector2(138, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cje1j"]
+size = Vector2(138, 138)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_em0nn"]
 animations = [{
@@ -53,21 +53,21 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_x2q8g")
 sprite = NodePath("TrapSprite")
-hit_box = NodePath("TrapBody/TrapHitBox")
+hit_box = NodePath("TrapHitBox")
 moving_body = NodePath("TrapBody")
 
 [node name="TrapBody" type="CharacterBody2D" parent="." unique_id=468646218]
 collision_mask = 10
 motion_mode = 1
 
-[node name="TrapHitBox" type="Area2D" parent="TrapBody" unique_id=1561698764]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapBody/TrapHitBox" unique_id=651153798]
-shape = SubResource("RectangleShape2D_cje1j")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrapBody" unique_id=2100817014]
 shape = SubResource("RectangleShape2D_x2q8g")
+
+[node name="TrapHitBox" type="Area2D" parent="." unique_id=1561698764]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapHitBox" unique_id=651153798]
+shape = SubResource("RectangleShape2D_cje1j")
 
 [node name="TrapSprite" type="AnimatedSprite2D" parent="." unique_id=1925100584]
 scale = Vector2(1.7957747, 1.9179105)
@@ -82,7 +82,7 @@ offset_right = 64.0
 offset_bottom = 64.0
 mouse_filter = 0
 
-[connection signal="area_entered" from="TrapBody/TrapHitBox" to="." method="_on_trap_hit_box_area_entered"]
-[connection signal="body_entered" from="TrapBody/TrapHitBox" to="." method="_on_trap_hit_box_body_entered"]
+[connection signal="area_entered" from="TrapHitBox" to="." method="_on_trap_hit_box_area_entered"]
+[connection signal="body_entered" from="TrapHitBox" to="." method="_on_trap_hit_box_body_entered"]
 [connection signal="animation_finished" from="TrapSprite" to="." method="_on_trap_sprite_animation_finished"]
 [connection signal="gui_input" from="TrapClickBox" to="." method="_on_trap_click_box_gui_input"]
