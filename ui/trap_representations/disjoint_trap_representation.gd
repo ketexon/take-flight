@@ -10,26 +10,35 @@ extends Control
 @export var trap_to_spawn : Resource
 ##The scene which will be spawned and linked to the trap_to_spawn 
 @export var disjoint_trigger_to_spawn :Resource
+##The movable representation of the object which will trigger the trap
+@export var trigger_representation :Resource
 ##This will be refunded to the player if the icon is deleted
 @export var cost:int #filled when trap is spawned by UI
 ##Will have its signal listened for before registering the traps 
 @export var _finish_button:BaseButton
-var is_dragging = false
+
+var is_dragging :bool
 
 const TILE_SIZE = Vector2(64, 64)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	texture_rect.texture = texture
-	_finish_button.pressed.connect(_spawn_trap)
+	is_dragging = false
 
 
 func _spawn_trap():
 	print("Spawning a trap and plate")
+	var trap = trap_to_spawn.instantiate()
 	var plate = disjoint_trigger_to_spawn.instantiate()
-	plate.add_child()
-	pass
+	trap.position = Vector2(self.position)
+	
+	plate.action = trap
+	plate.position = Vector2(self.global_position)
+	get_parent().add_child(trap)
+	get_parent().add_child(plate)
+
+	self.queue_free.call_deferred()	
 
 
 func _process(_delta: float) -> void:
@@ -49,4 +58,4 @@ func _on_texture_rect_gui_input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
 		emit_signal("trap_sold", [cost])
 		print("Refunded %d gold" %cost)
-		self.queue_free.call_deferred()
+		self.get_parent().queue_free.call_deferred()

@@ -8,11 +8,15 @@ class_name SellTrapUI
 @export var representation: Resource
 ##A reference to the scene which will eventually spawn the trap
 @export var trap_type: Resource
+##Will be used to listen for a signal before registering traps
+@export var _finish_button: BaseButton
+##A reference to the draggable icon which will eventually spawn the pressure_plate indicated
+##by the disjoint trigger object
+@export var disjoint_trigger_representation: Resource
 ##A reference to the pressure plate which will be used to trigger the trap.
 ##Treated as having no disjoint hitbox if null
 @export var disjoint_trigger_object: Resource = null
-##Will be used to listen for a signal before registering traps
-@export var _finish_button: BaseButton
+
 
 
 var tree_root: Node
@@ -39,8 +43,11 @@ func _input(event) -> void:
 			sell_trap_instance.texture = trap_frame.texture
 			sell_trap_instance.cost = cost
 			
-			if disjoint_trigger_object:
+			if disjoint_trigger_object and disjoint_trigger_representation:
+				var sell_plate_instance = disjoint_trigger_representation.instantiate()
 				sell_trap_instance.disjoint_trigger_to_spawn = disjoint_trigger_object
+				
+				
 			
 			tree_root.add_child(sell_trap_instance)
 			

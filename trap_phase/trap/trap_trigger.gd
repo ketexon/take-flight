@@ -14,7 +14,7 @@ func _enter_tree() -> void:
 		await ready
 	cell = TrapPhase.current.grid.get_cell_at_point(global_position) 
 	##NOTE: this looks visually correct, but I am not sure if this will mess with the hitboxes
-	self.position = TrapPhase.current.grid.get_cell_center(cell + Vector2i(1,1))
+	self.position = TrapPhase.current.grid.get_cell_center(cell)
 	TrapPhase.current.grid.register_trap(self)
 
 
