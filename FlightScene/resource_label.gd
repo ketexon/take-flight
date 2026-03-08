@@ -11,5 +11,5 @@ func _on_resource_pickup() -> void:
 
 
 func _on_player_dead() -> void:
-	global.resources = score
-	global.score += score
+	Global.resources = score
+	Global.score += score

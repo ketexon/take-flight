@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dirjd4u8goyqf" path="res://ui/scene_transition/scene_transition.tscn" id="2_crako"]
 [ext_resource type="Script" uid="uid://txf8y6ic23m6" path="res://title/title_play_button.gd" id="2_nx56k"]
 [ext_resource type="Script" uid="uid://beug8yrccmhi4" path="res://title/title_bkg.gd" id="3_64gp6"]
+[ext_resource type="FontFile" uid="uid://1dn0vxxqrdam" path="res://fonts/AncizarSerif-VariableFont_wght.ttf" id="7_64gp6"]
+
+[sub_resource type="FontVariation" id="FontVariation_64gp6"]
+base_font = ExtResource("7_64gp6")
+variation_embolden = 0.6
 
 [node name="Title" type="Node2D" unique_id=232027456]
 
@@ -26,7 +31,7 @@ rotation = 0.7853982
 modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
 layout_mode = 0
 offset_right = 12330.0
-offset_bottom = 5293.5146
+offset_bottom = 10587.03
 scale = Vector2(0.5, 0.5)
 pivot_offset_ratio = Vector2(0, -0.5)
 texture = ExtResource("2_64gp6")
@@ -78,21 +83,25 @@ text = "Play"
 script = ExtResource("2_nx56k")
 _scene_path = "uid://dsnnw8ipqrssb"
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=747787288]
-anchors_preset = 2
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=67073760]
+anchors_preset = -1
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -40.0
-offset_right = 40.0
+offset_left = -244.0
+offset_top = -144.0
+offset_right = -32.0
 offset_bottom = -32.0
+grow_horizontal = 0
 grow_vertical = 0
-
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer" unique_id=776706188]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_64gp6")
+theme_override_font_sizes/font_size = 18
 text = "Aubrey Clark - Programming, UI
 Joanna Liu - Art
 Jackson Scifres - Programming
 James Taddei - James Taddei
 Zack Paronto - Programming"
+horizontal_alignment = 2

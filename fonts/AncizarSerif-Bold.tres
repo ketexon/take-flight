@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" format=3 uid="uid://ofbcewc5w6yt"]
+
+[ext_resource type="FontFile" uid="uid://1dn0vxxqrdam" path="res://fonts/AncizarSerif-VariableFont_wght.ttf" id="1_7bmr4"]
+
+[resource]
+base_font = ExtResource("1_7bmr4")
+variation_embolden = 0.5

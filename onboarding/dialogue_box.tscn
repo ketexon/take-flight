@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bfcqhoe4hjcj2"]
+
+[ext_resource type="Script" uid="uid://ddm2oncb4oud" path="res://onboarding/onboarding_dialogue.gd" id="1_mlmh8"]
+[ext_resource type="Texture2D" uid="uid://blsmujilsvwu3" path="res://onboarding/jester.png" id="3_23q83"]
+[ext_resource type="Script" uid="uid://di1l7di2jbp2g" path="res://onboarding/onboarding_advance_label.gd" id="4_ja7hi"]
+
+[node name="DialogueBox" type="PanelContainer" unique_id=1912047646 node_paths=PackedStringArray("_label", "_advance")]
+custom_minimum_size = Vector2(512, 192)
+offset_right = 512.0
+offset_bottom = 175.0
+script = ExtResource("1_mlmh8")
+_label = NodePath("HBoxContainer/MarginContainer2/VBoxContainer/RichTextLabel")
+_advance = NodePath("HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/Advance")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1563425643]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=2072156096]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer" unique_id=352119906]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_23q83")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer" unique_id=1328215575]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2" unique_id=1212298506]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1550646702]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "My liege! We are under attack! Place traps to fend off the enemy."
+visible_characters_behavior = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer" unique_id=388902986]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_right = 16
+
+[node name="Advance" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=194280280]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Enter to advance"
+horizontal_alignment = 2
+script = ExtResource("4_ja7hi")

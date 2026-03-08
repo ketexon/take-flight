@@ -13,8 +13,8 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
+	disabled = true
 	SceneTransition.instance.transition_out()
 	await SceneTransition.instance.transition_finished
 	get_tree().change_scene_to_file(_scene_path)
 	
-	disabled = true

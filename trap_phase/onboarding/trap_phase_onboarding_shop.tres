@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="OnboardingLines" format=3 uid="uid://cd042me55jifp"]
+
+[ext_resource type="Script" uid="uid://jew3yjcj8srv" path="res://onboarding/onboarding_lines.gd" id="1_77d8w"]
+
+[resource]
+script = ExtResource("1_77d8w")
+lines = Array[String](["You can buy traps here.", "You will get more pawns later, but try not too use them all!"])
+metadata/_custom_type_script = "uid://jew3yjcj8srv"

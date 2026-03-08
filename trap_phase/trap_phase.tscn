@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dncw2icq2lxfx" path="res://trap_phase/states/trap_phase_state_intro.gd" id="3_1vh1o"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_ktvvt"]
 [ext_resource type="Script" uid="uid://64lvvvhhok8" path="res://trap_phase/trap_phase_enemy_spawner.gd" id="3_ptvs6"]
+[ext_resource type="Script" uid="uid://5tf5lkewk6xq" path="res://trap_phase/states/trap_phase_state_onboarding.gd" id="4_0oftf"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6i4uy"]
 [ext_resource type="Resource" uid="uid://tpbvns16wgcu" path="res://trap_phase/enemy/enemy_database.tres" id="4_ckmea"]
 [ext_resource type="Script" uid="uid://dykgoyce17pbo" path="res://trap_phase/states/trap_phase_state_wave.gd" id="4_cqdfb"]
@@ -26,6 +27,13 @@
 [ext_resource type="Script" uid="uid://bo2quqtv083ll" path="res://trap_phase/trap_phase_door.gd" id="17_dafls"]
 [ext_resource type="PackedScene" uid="uid://c53nor341ld54" path="res://trap_phase/trap/arrow/arrow_shooter.tscn" id="19_1vh1o"]
 [ext_resource type="PackedScene" uid="uid://p0msl8qocisn" path="res://trap_phase/trap/pressure_plate/pressure_plate.tscn" id="21_evp1g"]
+[ext_resource type="PackedScene" uid="uid://bfcqhoe4hjcj2" path="res://onboarding/dialogue_box.tscn" id="27_6k4jr"]
+[ext_resource type="Script" uid="uid://ba8nju48y5ny4" path="res://onboarding/onboarding.gd" id="27_gihsw"]
+[ext_resource type="Resource" uid="uid://c6r65anr4ebdr" path="res://trap_phase/onboarding/trap_phase_onboarding_intro.tres" id="28_p8snn"]
+[ext_resource type="Script" uid="uid://dnt37xe0r0r2c" path="res://onboarding/onboarding_step.gd" id="29_p8snn"]
+[ext_resource type="Resource" uid="uid://cyu0ahb4mrtoc" path="res://trap_phase/onboarding/trap_phase_onboarding_grid.tres" id="32_4fu15"]
+[ext_resource type="Resource" uid="uid://cd042me55jifp" path="res://trap_phase/onboarding/trap_phase_onboarding_shop.tres" id="33_yj1tg"]
+[ext_resource type="Resource" uid="uid://b3tqx6ff2vo07" path="res://trap_phase/onboarding/trap_phase_onboarding_drag_n_drop.tres" id="34_heavr"]
 
 [sub_resource type="Resource" id="Resource_irb3f"]
 script = ExtResource("4_6i4uy")
@@ -59,6 +67,11 @@ metadata/_custom_type_script = "uid://buvum03pmdrnm"
 script = ExtResource("3_1vh1o")
 _delay = 0.2
 metadata/_custom_type_script = "uid://dncw2icq2lxfx"
+
+[node name="TrapPhaseStateOnboarding" type="Node" parent="StateMachine" unique_id=1509888544 node_paths=PackedStringArray("_onboarding")]
+script = ExtResource("4_0oftf")
+_onboarding = NodePath("../../Onboarding")
+metadata/_custom_type_script = "uid://5tf5lkewk6xq"
 
 [node name="TrapPhaseStatePrepration" type="Node" parent="StateMachine" unique_id=1661451994 node_paths=PackedStringArray("_finish_button")]
 script = ExtResource("13_4isxw")
@@ -167,10 +180,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Back to menu"
 
-[node name="SceneTransition" parent="CanvasLayer" unique_id=1967025034 node_paths=PackedStringArray("_follow") instance=ExtResource("14_esqvv")]
-_follow = NodePath("../../YSort/Player")
-metadata/_edit_use_anchors_ = true
-
 [node name="YSort" type="Node2D" parent="." unique_id=816305819]
 y_sort_enabled = true
 
@@ -238,3 +247,115 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("2_hxx32")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="SceneTransition" type="CanvasLayer" parent="." unique_id=237270800]
+layer = 10
+
+[node name="SceneTransition" parent="SceneTransition" unique_id=1967025034 node_paths=PackedStringArray("_follow") instance=ExtResource("14_esqvv")]
+_follow = NodePath("../../YSort/Player")
+metadata/_edit_use_anchors_ = true
+
+[node name="Onboarding" type="CanvasLayer" parent="." unique_id=1478053886 node_paths=PackedStringArray("_dialogue", "_start_step")]
+layer = 5
+script = ExtResource("27_gihsw")
+_dialogue = NodePath("DialogueBox")
+_start_step = NodePath("Steps/Intro")
+
+[node name="DialogueBox" parent="Onboarding" unique_id=1912047646 instance=ExtResource("27_6k4jr")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -192.0
+offset_right = 256.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Control" type="Control" parent="Onboarding" unique_id=1026156219]
+layout_mode = 3
+anchor_left = 0.88600004
+anchor_top = 0.59300005
+anchor_right = 0.88600004
+anchor_bottom = 0.59300005
+mouse_filter = 2
+
+[node name="Steps" type="Control" parent="Onboarding" unique_id=1386864630]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Intro" type="Control" parent="Onboarding/Steps" unique_id=1937707950 node_paths=PackedStringArray("_next")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("29_p8snn")
+_lines = ExtResource("28_p8snn")
+_next = NodePath("../Grid")
+_grow_horizontal = 2
+metadata/_custom_type_script = "uid://dnt37xe0r0r2c"
+
+[node name="Grid" type="Control" parent="Onboarding/Steps" unique_id=502975670 node_paths=PackedStringArray("_next")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+mouse_filter = 2
+script = ExtResource("29_p8snn")
+_lines = ExtResource("32_4fu15")
+_next = NodePath("../Shop")
+_grow_horizontal = 2
+_grow_vertical = 1
+metadata/_custom_type_script = "uid://dnt37xe0r0r2c"
+
+[node name="Shop" type="Control" parent="Onboarding/Steps" unique_id=326465061 node_paths=PackedStringArray("_next")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_right = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("29_p8snn")
+_lines = ExtResource("33_yj1tg")
+_next = NodePath("../DragNDrop")
+_grow_vertical = 2
+metadata/_custom_type_script = "uid://dnt37xe0r0r2c"
+
+[node name="DragNDrop" type="Control" parent="Onboarding/Steps" unique_id=1827863126]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("29_p8snn")
+_lines = ExtResource("34_heavr")
+_grow_horizontal = 2
+metadata/_custom_type_script = "uid://dnt37xe0r0r2c"

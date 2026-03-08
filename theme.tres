@@ -3,18 +3,23 @@
 [ext_resource type="FontFile" uid="uid://dhdvh2iywwb8a" path="res://fonts/Jacquard24-Regular.ttf" id="1_e1x85"]
 [ext_resource type="StyleBox" uid="uid://b2mikn6ceyxvj" path="res://ui/styleboxes/button_hover.tres" id="2_110ce"]
 [ext_resource type="FontFile" uid="uid://1dn0vxxqrdam" path="res://fonts/AncizarSerif-VariableFont_wght.ttf" id="2_cjfk0"]
+[ext_resource type="StyleBox" uid="uid://du6i2prw2j0rb" path="res://ui/styleboxes/button_disabled.tres" id="2_mihib"]
 [ext_resource type="StyleBox" uid="uid://cxpg6dtt3age3" path="res://ui/styleboxes/button_normal.tres" id="2_vj6dk"]
 [ext_resource type="StyleBox" uid="uid://dkbf5wt5x1pxc" path="res://ui/styleboxes/button_pressed.tres" id="4_05tig"]
 [ext_resource type="StyleBox" uid="uid://c2ltdj1m00pji" path="res://ui/styleboxes/panel.tres" id="6_1rmny"]
+[ext_resource type="FontVariation" uid="uid://ofbcewc5w6yt" path="res://fonts/AncizarSerif-Bold.tres" id="8_yin2u"]
+[ext_resource type="FontFile" uid="uid://clxwc0erxrp81" path="res://fonts/AncizarSerif-Italic-VariableFont_wght.ttf" id="9_ttqs8"]
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("2_cjfk0")
+Button/styles/disabled = ExtResource("2_mihib")
 Button/styles/focus = ExtResource("2_110ce")
 Button/styles/hover = ExtResource("2_110ce")
 Button/styles/normal = ExtResource("2_vj6dk")
@@ -27,6 +32,10 @@ Heading2Label/font_sizes/font_size = 32
 Heading2Label/fonts/font = ExtResource("1_e1x85")
 Label/fonts/font = ExtResource("2_cjfk0")
 PanelContainer/styles/panel = ExtResource("6_1rmny")
+RichTextLabel/fonts/bold_font = ExtResource("8_yin2u")
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = ExtResource("9_ttqs8")
+RichTextLabel/fonts/normal_font = ExtResource("2_cjfk0")
 Subtitle1Label/base_type = &"Label"
 Subtitle1Label/font_sizes/font_size = 24
 Subtitle1Label/fonts/font = ExtResource("2_cjfk0")

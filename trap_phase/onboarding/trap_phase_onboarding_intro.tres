@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="OnboardingLines" format=3 uid="uid://c6r65anr4ebdr"]
+
+[ext_resource type="Script" uid="uid://jew3yjcj8srv" path="res://onboarding/onboarding_lines.gd" id="1_gfrbb"]
+
+[resource]
+script = ExtResource("1_gfrbb")
+lines = Array[String](["My liege! It is I, your imaginary jester!", "The enemy is at the door as we speak! You are not safe here."])
+metadata/_custom_type_script = "uid://jew3yjcj8srv"
