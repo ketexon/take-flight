@@ -36,7 +36,10 @@ func _input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			#TODO: on click, add logic to check the amount of resources a player has
-			#if (player.money >= cost):
+			if (cost > global.resources): return
+			
+			global.resources -= cost
+
 			var sell_trap_instance = representation.instantiate()
 			sell_trap_instance._finish_button = _finish_button
 			sell_trap_instance.trap_to_spawn = trap_type
