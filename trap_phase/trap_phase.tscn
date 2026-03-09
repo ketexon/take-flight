@@ -201,7 +201,7 @@ position = Vector2(72, 1080)
 metadata/_custom_type_script = "uid://chxd54cxdykwv"
 
 [node name="spikes" parent="YSort" unique_id=1174415495 instance=ExtResource("11_1vh1o")]
-position = Vector2(643, 364)
+position = Vector2(1080, 69)
 
 [node name="pressure_plate" parent="YSort" unique_id=868492361 node_paths=PackedStringArray("action") instance=ExtResource("21_evp1g")]
 position = Vector2(930, 220)
