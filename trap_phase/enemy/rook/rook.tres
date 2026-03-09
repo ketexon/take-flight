@@ -1,17 +1,11 @@
 [gd_resource type="Resource" script_class="TrapPhaseEnemyData" format=3 uid="uid://c7l27sk8gtrf0"]
 
 [ext_resource type="PackedScene" uid="uid://207a1yspi4k5" path="res://trap_phase/enemy/rook/rook.tscn" id="1_k4alp"]
+[ext_resource type="Texture2D" uid="uid://cyli3g68mjrr5" path="res://assets/enemyPieceIcons/rookicon_sm.png" id="2_536st"]
 [ext_resource type="Script" uid="uid://c6qw8syrbbmxo" path="res://trap_phase/enemy/trap_phase_enemy_data.gd" id="2_s7fht"]
-
-[sub_resource type="Gradient" id="Gradient_k4alp"]
-colors = PackedColorArray(0, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_s7fht"]
-gradient = SubResource("Gradient_k4alp")
-fill_to = Vector2(1, 1)
 
 [resource]
 script = ExtResource("2_s7fht")
 packed_scene = ExtResource("1_k4alp")
-queue_icon_texture = SubResource("GradientTexture2D_s7fht")
+queue_icon_texture = ExtResource("2_536st")
 metadata/_custom_type_script = "uid://c6qw8syrbbmxo"

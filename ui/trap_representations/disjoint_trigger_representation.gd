@@ -16,14 +16,15 @@ signal trigger_spawned(plate:Node)
 func _ready() -> void:
 	is_dragging = false
 	texture_rect.texture = texture
-	
+	var cell = TrapPhase.current.grid.get_cell_at_point(global_position)
+	global_position = TrapPhase.current.grid.get_cell_center(cell)
 
 
 func _process(_delta: float) -> void:
 	if is_dragging:
-		global_position = get_global_mouse_position() - texture_rect.size / 2
+		global_position = get_global_mouse_position()
 		var cell = TrapPhase.current.grid.get_cell_at_point(global_position)
-		global_position = global_position.snapped(TrapPhase.current.grid.get_cell_center(cell)) 
+		global_position = TrapPhase.current.grid.get_cell_center(cell)
 		
 
 func _spawn_trap():

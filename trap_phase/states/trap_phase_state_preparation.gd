@@ -13,8 +13,7 @@ func on_entered() -> void:
 	
 	await Modal.instance.finished
 	_finish_button.pressed.connect(_on_finish_button_pressed)
-	
-	
+
 
 func on_exited() -> void:
 	_finish_button.pressed.disconnect(_on_finish_button_pressed)

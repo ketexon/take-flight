@@ -19,7 +19,8 @@ func _enter_tree() -> void:
 
 
 func _exit_tree() -> void:
-	TrapPhase.current.grid.unregister_trap(self)
+	if TrapPhase.current != null:
+		TrapPhase.current.grid.unregister_trap(self)
 
 
 func trigger(character: TrapPhaseCharacter) -> void:

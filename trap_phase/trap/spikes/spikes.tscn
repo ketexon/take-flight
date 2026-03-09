@@ -7,7 +7,6 @@
 [node name="spikes" type="Node2D" unique_id=1174415495 node_paths=PackedStringArray("action")]
 script = ExtResource("1_sgvoo")
 action = NodePath("TrapActionKill")
-_once = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732712619]
 scale = Vector2(0.6, 0.6)

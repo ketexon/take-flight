@@ -50,10 +50,10 @@ func _input(event) -> void:
 				var sell_plate_instance = disjoint_trigger_representation.instantiate()
 				sell_trap_instance.disjoint_trigger_to_spawn = disjoint_trigger_object
 		
-			tree_root.add_child(sell_trap_instance)
-			
 			var viewport_center = get_viewport_rect().size / 2
 			sell_trap_instance.position = viewport_center
+		
+			tree_root.add_child(sell_trap_instance)
 			
 			emit_signal("trap_purchased", [cost])
 			print("%s spawned trap of reference %s" % [self, sell_trap_instance])
