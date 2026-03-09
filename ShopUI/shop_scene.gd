@@ -22,7 +22,7 @@ func _ready() -> void:
 	spikes.representation = representation
 	spikes._finish_button = _finish_button
 	spikes.trap_type = spikes_scene
-	spikes.trap_frame.texture = ImageTexture.create_from_image(Image.load_from_file("res://assets/traps/spikes_sm.png"))
+	spikes.trap_frame.texture = load("res://assets/traps/spikes_sm.png")
 	spikes.cost = 5
 	
 	
@@ -31,7 +31,7 @@ func _ready() -> void:
 	arrow_shooter.disjoint_trigger_object = pressure_plate_scene
 	arrow_shooter._finish_button = _finish_button
 	arrow_shooter.trap_type = arrow_shooter_scene
-	arrow_shooter.trap_frame.texture = ImageTexture.create_from_image(Image.load_from_file("res://assets/traps/loadedarrow_sm.png"))
+	arrow_shooter.trap_frame.texture = load("res://assets/traps/loadedarrow_sm.png")
 	arrow_shooter.cost = 10
 	
 
