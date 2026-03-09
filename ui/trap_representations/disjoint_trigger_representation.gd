@@ -46,5 +46,5 @@ func _on_texture_rect_gui_input(event: InputEvent) -> void:
 	
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
 		print("Refunded %d gold" %cost)
-		global.resources += cost
+		Global.resources += cost
 		self.get_parent().queue_free.call_deferred()
