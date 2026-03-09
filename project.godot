@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="take-flight"
-run/main_scene="uid://djoixei7bjmc0"
+run/main_scene="uid://dsnnw8ipqrssb"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

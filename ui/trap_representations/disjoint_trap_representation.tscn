@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://by5of468uus7"]
+
+[ext_resource type="Script" uid="uid://b2jooa0cjksfe" path="res://ui/trap_representations/disjoint_trap_representation.gd" id="1_ku21c"]
+[ext_resource type="Script" uid="uid://dv1ds1q53qg60" path="res://ui/trap_representations/disjoint_container.gd" id="1_p6neo"]
+[ext_resource type="Texture2D" uid="uid://66nditpclr66" path="res://ShopUI/coin.png" id="2_h873o"]
+[ext_resource type="Texture2D" uid="uid://blkc0pul75qy1" path="res://assets/traps/pressureplate.png" id="3_p6neo"]
+[ext_resource type="Script" uid="uid://beey7jqvu6iet" path="res://ui/trap_representations/disjoint_trigger_representation.gd" id="4_alkyl"]
+[ext_resource type="PackedScene" uid="uid://p0msl8qocisn" path="res://trap_phase/trap/pressure_plate/pressure_plate.tscn" id="6_1eveh"]
+
+[node name="Control" type="Control" unique_id=641381588 node_paths=PackedStringArray("draggable_trap", "draggable_trigger")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_p6neo")
+draggable_trap = NodePath("DisjointTrapRepresentation")
+draggable_trigger = NodePath("DisjointTriggerRepresentation")
+
+[node name="DisjointTrapRepresentation" type="Control" parent="." unique_id=1133230808 node_paths=PackedStringArray("texture_rect")]
+anchors_preset = 0
+script = ExtResource("1_ku21c")
+texture_rect = NodePath("TextureRect")
+texture = ExtResource("2_h873o")
+
+[node name="TextureRect" type="TextureRect" parent="DisjointTrapRepresentation" unique_id=581914899]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="DisjointTriggerRepresentation" type="Control" parent="." unique_id=1258991695 node_paths=PackedStringArray("texture_rect")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_alkyl")
+texture_rect = NodePath("TextureRect")
+texture = ExtResource("3_p6neo")
+trigger_scene = ExtResource("6_1eveh")
+
+[node name="TextureRect" type="TextureRect" parent="DisjointTriggerRepresentation" unique_id=689125280]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+expand_mode = 1
+
+[connection signal="trap_spawned" from="DisjointTrapRepresentation" to="." method="_on_disjoint_trap_representation_trap_spawned"]
+[connection signal="gui_input" from="DisjointTrapRepresentation/TextureRect" to="DisjointTrapRepresentation" method="_on_texture_rect_gui_input"]
+[connection signal="trigger_spawned" from="DisjointTriggerRepresentation" to="." method="_on_disjoint_trigger_representation_trigger_spawned"]
+[connection signal="gui_input" from="DisjointTriggerRepresentation/TextureRect" to="DisjointTriggerRepresentation" method="_on_texture_rect_gui_input"]

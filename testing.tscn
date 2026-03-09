@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5np7k87hgwed"]
+
+[ext_resource type="PackedScene" uid="uid://by5of468uus7" path="res://ui/trap_representations/disjoint_trap_representation.tscn" id="1_qrja6"]
+[ext_resource type="PackedScene" uid="uid://c37rhrkcgthhf" path="res://ui/trap_representations/trap_representation.tscn" id="3_kj3p2"]
+
+[node name="Node2D" type="Node2D" unique_id=1526922386]
+
+[node name="DisjointTrapRepresentation" parent="." unique_id=1133230808 instance=ExtResource("1_qrja6")]
+
+[node name="TrapRepresentation" parent="." unique_id=966169674 instance=ExtResource("3_kj3p2")]

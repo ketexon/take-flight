@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dncw2icq2lxfx" path="res://trap_phase/states/trap_phase_state_intro.gd" id="3_1vh1o"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_ktvvt"]
 [ext_resource type="Script" uid="uid://64lvvvhhok8" path="res://trap_phase/trap_phase_enemy_spawner.gd" id="3_ptvs6"]
-[ext_resource type="Script" uid="uid://5tf5lkewk6xq" path="res://trap_phase/states/trap_phase_state_onboarding.gd" id="4_0oftf"]
+[ext_resource type="Script" path="res://trap_phase/states/trap_phase_state_onboarding.gd" id="4_0oftf"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_6i4uy"]
 [ext_resource type="Resource" uid="uid://tpbvns16wgcu" path="res://trap_phase/enemy/enemy_database.tres" id="4_ckmea"]
 [ext_resource type="Script" uid="uid://dykgoyce17pbo" path="res://trap_phase/states/trap_phase_state_wave.gd" id="4_cqdfb"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://tx0qt5dqxy5g" path="res://trap_phase/states/trap_phase_state_flee.gd" id="5_dgycb"]
 [ext_resource type="PackedScene" uid="uid://15mvv00e3tot" path="res://trap_phase/player/trap_phase_player.tscn" id="6_yvf5e"]
 [ext_resource type="PackedScene" uid="uid://c7wdd1bb18t" path="res://trap_phase_transition/trap_phase_transition.tscn" id="7_b8yp2"]
-[ext_resource type="Script" uid="uid://c5b56y81lfism" path="res://trap_phase/states/trap_phase_state_death.gd" id="8_45ci6"]
+[ext_resource type="Script" path="res://trap_phase/states/trap_phase_state_death.gd" id="8_45ci6"]
 [ext_resource type="Texture2D" uid="uid://bikbtpds3qiip" path="res://assets/chessboard2.png" id="10_evp1g"]
 [ext_resource type="PackedScene" uid="uid://bqq8pq3a15sgk" path="res://trap_phase/trap/spikes/spikes.tscn" id="11_1vh1o"]
 [ext_resource type="PackedScene" uid="uid://cy7dui373yb50" path="res://trap_phase/enemy_queue_ui/enemy_queue_ui.tscn" id="11_pp0gd"]
@@ -23,10 +23,11 @@
 [ext_resource type="Script" uid="uid://cb0e7twca0jbx" path="res://trap_phase/states/trap_phase_state_preparation.gd" id="13_4isxw"]
 [ext_resource type="PackedScene" uid="uid://dirjd4u8goyqf" path="res://ui/scene_transition/scene_transition.tscn" id="14_esqvv"]
 [ext_resource type="PackedScene" uid="uid://c5eickyjuxvkx" path="res://ui/modal/modal.tscn" id="16_hym81"]
-[ext_resource type="Script" uid="uid://cqrj6t10bajgp" path="res://trap_phase/trap_phase_you_died.gd" id="16_yqecm"]
+[ext_resource type="Script" path="res://trap_phase/trap_phase_you_died.gd" id="16_yqecm"]
 [ext_resource type="Script" uid="uid://bo2quqtv083ll" path="res://trap_phase/trap_phase_door.gd" id="17_dafls"]
 [ext_resource type="PackedScene" uid="uid://c53nor341ld54" path="res://trap_phase/trap/arrow/arrow_shooter.tscn" id="19_1vh1o"]
 [ext_resource type="PackedScene" uid="uid://p0msl8qocisn" path="res://trap_phase/trap/pressure_plate/pressure_plate.tscn" id="21_evp1g"]
+[ext_resource type="PackedScene" uid="uid://d3pha0p35darl" path="res://ui/Shop/shop_scene.tscn" id="25_45ci6"]
 [ext_resource type="PackedScene" uid="uid://bfcqhoe4hjcj2" path="res://onboarding/dialogue_box.tscn" id="27_6k4jr"]
 [ext_resource type="Script" uid="uid://ba8nju48y5ny4" path="res://onboarding/onboarding.gd" id="27_gihsw"]
 [ext_resource type="Resource" uid="uid://c6r65anr4ebdr" path="res://trap_phase/onboarding/trap_phase_onboarding_intro.tres" id="28_p8snn"]
@@ -68,14 +69,21 @@ script = ExtResource("3_1vh1o")
 _delay = 0.2
 metadata/_custom_type_script = "uid://dncw2icq2lxfx"
 
+[node name="TrapPhaseStateIntroDelay" type="Node" parent="StateMachine/TrapPhaseStateIntroDelay" unique_id=611821485]
+script = ExtResource("3_1vh1o")
+_delay = 0.2
+metadata/_custom_type_script = "uid://dncw2icq2lxfx"
+
 [node name="TrapPhaseStateOnboarding" type="Node" parent="StateMachine" unique_id=1509888544 node_paths=PackedStringArray("_onboarding")]
 script = ExtResource("4_0oftf")
 _onboarding = NodePath("../../Onboarding")
-metadata/_custom_type_script = "uid://5tf5lkewk6xq"
 
-[node name="TrapPhaseStatePrepration" type="Node" parent="StateMachine" unique_id=1661451994 node_paths=PackedStringArray("_finish_button")]
+[node name="TrapPhaseStatePrepration" type="Node" parent="StateMachine" unique_id=1661451994]
+
+[node name="TrapPhaseStatePrepration2" type="Node" parent="StateMachine" unique_id=1238757879 node_paths=PackedStringArray("_finish_button", "_shop_interface")]
 script = ExtResource("13_4isxw")
 _finish_button = NodePath("../../CanvasLayer/Button")
+_shop_interface = NodePath("../../YSort/ShopScene")
 metadata/_custom_type_script = "uid://cb0e7twca0jbx"
 
 [node name="TrapPhaseStateWave" type="Node" parent="StateMachine" unique_id=516388083]
@@ -92,7 +100,6 @@ script = ExtResource("8_45ci6")
 _state_machine = NodePath("..")
 _pcam = NodePath("../../FollowPlayerCamera")
 _you_died = NodePath("../../CanvasLayer/You died")
-metadata/_custom_type_script = "uid://c5b56y81lfism"
 
 [node name="TrapPhaseGrid" type="Node" parent="." unique_id=1785896232 node_paths=PackedStringArray("_obstacle_tilemap_layer")]
 script = ExtResource("1_etsdt")
@@ -201,14 +208,20 @@ position = Vector2(72, 1080)
 metadata/_custom_type_script = "uid://chxd54cxdykwv"
 
 [node name="spikes" parent="YSort" unique_id=1174415495 instance=ExtResource("11_1vh1o")]
-position = Vector2(504, 648)
+position = Vector2(643, 364)
 
-[node name="pressure_plate" parent="YSort" unique_id=868492361 node_paths=PackedStringArray("action") instance=ExtResource("21_evp1g")]
-position = Vector2(794, 214)
-action = NodePath("../arrow_shooter")
+[node name="pressure_plate" parent="YSort" unique_id=868492361 instance=ExtResource("21_evp1g")]
+position = Vector2(930, 220)
 
 [node name="arrow_shooter" parent="YSort" unique_id=1522509257 instance=ExtResource("19_1vh1o")]
 position = Vector2(799, 1087)
+
+[node name="ShopScene" parent="YSort" unique_id=1901123927 node_paths=PackedStringArray("_finish_button") instance=ExtResource("25_45ci6")]
+offset_left = -762.0
+offset_top = 105.0
+offset_right = -762.0
+offset_bottom = 105.0
+_finish_button = NodePath("../../CanvasLayer/Button")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=238238776]
 position = Vector2(576, 576)
@@ -350,8 +363,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -64.0
-offset_bottom = -64.0
+offset_left = 797.0
+offset_top = 1082.0
+offset_right = 797.0
+offset_bottom = 1082.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2

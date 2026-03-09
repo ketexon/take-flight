@@ -25,7 +25,6 @@ var astar_grid: AStarGrid2D:
 func _enter_tree() -> void:
 	current = self
 
-
 func _exit_tree() -> void:
 	if current == self:
 		current = null

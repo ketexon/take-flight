@@ -12,7 +12,9 @@ var _already_triggered := false
 func _enter_tree() -> void:
 	if not is_node_ready():
 		await ready
-	cell = TrapPhase.current.grid.get_cell_at_point(global_position)
+	cell = TrapPhase.current.grid.get_cell_at_point(global_position) 
+	##NOTE: this looks visually correct, but I am not sure if this will mess with the hitboxes
+	self.position = TrapPhase.current.grid.get_cell_center(cell)
 	TrapPhase.current.grid.register_trap(self)
 
 

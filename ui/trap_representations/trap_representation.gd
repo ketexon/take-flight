@@ -1,0 +1,50 @@
+extends Control
+
+
+##A reference to the child texture rect. Displays for the user to move around
+@export var texture_rect :TextureRect
+##The image icon for this representation
+@export var texture :Texture
+##The trap which will be spawned once the state_controller's scene transitions
+##to spawning enemies
+@export var trap_to_spawn : Resource
+##This will be refunded to the player if the icon is deleted
+@export var cost:int #filled when trap is spawned by UI
+##Will have its signal listened for before registering the traps 
+@export var _finish_button:BaseButton
+var is_dragging = false
+
+const TILE_SIZE = Vector2(64, 64)
+
+
+func _ready() -> void:
+	texture_rect.texture = texture
+	_finish_button.pressed.connect(_spawn_trap)
+	
+func _spawn_trap():
+	print("Spawning normal trap")
+	var trap_scene = trap_to_spawn.instantiate()
+	trap_scene.position = Vector2(self.position)
+	self.get_parent().add_child(trap_scene)
+	
+	self.queue_free.call_deferred()	
+
+func _process(_delta: float) -> void:
+	if is_dragging:
+		global_position = get_global_mouse_position() - texture_rect.size / 2
+		var cell = TrapPhase.current.grid.get_cell_at_point(global_position)
+		global_position = global_position.snapped(TrapPhase.current.grid.get_cell_center(cell)) 
+		
+
+func _on_texture_rect_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+				print('down')
+				is_dragging = true
+		else:
+			is_dragging = false
+	
+	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
+		emit_signal("trap_sold", [cost])
+		print("Refunded %d gold" %cost)
+		self.queue_free.call_deferred()

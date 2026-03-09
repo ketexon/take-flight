@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d3mpa61voy8r2"]
+
+[ext_resource type="Script" uid="uid://cy5txwcsb6uhi" path="res://ShopUI/sell_trap.gd" id="1_t8nnj"]
+[ext_resource type="Texture2D" uid="uid://bxos5u6q6ng2a" path="res://assets/resourcepawn.png" id="3_t8nnj"]
+
+[node name="ShopTrap" type="Control" unique_id=715731312 node_paths=PackedStringArray("trap_frame")]
+custom_minimum_size = Vector2(134, 150)
+layout_mode = 3
+anchor_right = 0.13900001
+anchor_bottom = 0.20400001
+offset_right = 71.264984
+offset_bottom = 0.32798767
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t8nnj")
+trap_frame = NodePath("TrapImage")
+cost = 5
+
+[node name="TrapImage" type="TextureRect" parent="." unique_id=217012575]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 150.0
+mouse_filter = 0
+expand_mode = 3
+
+[node name="CostLabel" type="Label" parent="TrapImage" unique_id=387828881]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 54.0
+offset_right = 189.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 32
+text = "__"
+
+[node name="CoinIcon" type="TextureRect" parent="TrapImage/CostLabel" unique_id=623889708]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -5.0
+offset_right = 98.0
+offset_bottom = 65.0
+texture = ExtResource("3_t8nnj")
+expand_mode = 4
+
+[connection signal="mouse_entered" from="TrapImage" to="." method="_on_trap_image_mouse_entered"]
+[connection signal="mouse_exited" from="TrapImage" to="." method="_on_trap_image_mouse_exited"]
