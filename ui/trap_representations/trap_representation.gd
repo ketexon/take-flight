@@ -47,6 +47,6 @@ func _on_texture_rect_gui_input(event: InputEvent) -> void:
 			is_dragging = false
 	
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
-		emit_signal("trap_sold", [cost])
 		print("Refunded %d gold" %cost)
+		Global.resources += cost
 		self.queue_free.call_deferred()

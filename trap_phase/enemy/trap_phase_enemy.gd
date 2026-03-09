@@ -7,4 +7,5 @@ extends TrapPhaseCharacter
 
 func on_killed() -> void:
 	TrapPhase.current.enemy_spawner.on_enemy_killed()
-	navigation.queue_free()
+	if is_instance_valid(navigation):
+		navigation.queue_free()
